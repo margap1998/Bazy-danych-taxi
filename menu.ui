@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Menu</class>
+ <widget class="QWidget" name="Menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>321</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="RejonyButton">
+      <property name="text">
+       <string>Rejony</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="KierowcyButton">
+      <property name="text">
+       <string>Kierowcy i pojazdy</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="UbezpieczeniaButton">
+      <property name="text">
+       <string>Ubezpieczenia</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="NaprawyButton">
+      <property name="text">
+       <string>Naprawy</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="PrzejazdyButton">
+      <property name="text">
+       <string>Przejazdy</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="StawkiButton">
+      <property name="text">
+       <string>Stawki</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="KlienciButton">
+      <property name="text">
+       <string>Klienci</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="PromocjaButton">
+      <property name="text">
+       <string>Promocje</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>500</y>
+     <width>321</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="WylogujButton">
+      <property name="text">
+       <string>Wyloguj</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="WylaczButton">
+      <property name="text">
+       <string>Wyłącz program</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="RaportPrzejazdyButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>80</y>
+     <width>581</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Raport przejazdów</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RaportPlacButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>170</y>
+     <width>581</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Raport płac</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
