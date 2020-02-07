@@ -110,7 +110,85 @@
      <height>80</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="opcjeBazy"/>
+   <layout class="QHBoxLayout" name="opcjeBazy">
+    <item>
+     <widget class="QRadioButton" name="uliceSwitch">
+      <property name="text">
+       <string>Ulice</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="obslugaBox">
+      <property name="text">
+       <string>Obsługa</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="rejonySwitch">
+      <property name="text">
+       <string>Rejony</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>500</y>
+     <width>160</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="obslugaButton">
+      <property name="contextMenuPolicy">
+       <enum>Qt::NoContextMenu</enum>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="text">
+       <string>Dodaj kierowcę do rejonu</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeatInterval">
+       <number>96</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="uliceButton">
+      <property name="text">
+       <string>Dodaj ulicę</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

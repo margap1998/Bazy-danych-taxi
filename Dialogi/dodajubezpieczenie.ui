@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DodajUbezpieczenie</class>
+ <widget class="QDialog" name="DodajUbezpieczenie">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>402</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>350</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>10</y>
+     <width>331</width>
+     <height>329</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="numerUbezpieczeniaLabel">
+      <property name="text">
+       <string>Numer ubezpieczenia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="numerUbezpieczeniaLineEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="numerRejestracyjnyLabel">
+      <property name="text">
+       <string>Numer rejestracyjny</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="numerRejestracyjnyComboBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="ubezpieczycielLabel">
+      <property name="text">
+       <string>Ubezpieczyciel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ubezpieczycielLineEdit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="kwotaLabel">
+      <property name="text">
+       <string>Kwota</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QDoubleSpinBox" name="kwotaDoubleSpinBox"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="kosztLabel">
+      <property name="text">
+       <string>Koszt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QDoubleSpinBox" name="kosztDoubleSpinBox"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="oCLabel">
+      <property name="text">
+       <string>OC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="oCCheckBox"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="dataZawarciaLabel">
+      <property name="text">
+       <string>Data zawarcia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QDateEdit" name="dataZawarciaDateEdit"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="dataZakoCzeniaLabel">
+      <property name="text">
+       <string>Data zakończenia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="dataZakoCzeniaLineEdit"/>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="aCLabel">
+      <property name="text">
+       <string>AC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QCheckBox" name="aCCheckBox"/>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="dodatkoweOpcjeLabel">
+      <property name="text">
+       <string>Dodatkowe opcje</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QPlainTextEdit" name="dodatkoweOpcjeTextEdit"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DodajUbezpieczenie</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DodajUbezpieczenie</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

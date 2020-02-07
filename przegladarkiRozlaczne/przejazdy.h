@@ -2,7 +2,7 @@
 #define PRZEJAZDY_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class Przejazdy;
 }
@@ -27,6 +27,7 @@ protected slots:
 private:
     QWidget *before;
     Ui::Przejazdy *ui;
+    QSqlRelationalTableModel model;
 };
 
 #endif // PRZEJAZDY_H

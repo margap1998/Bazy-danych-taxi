@@ -2,6 +2,7 @@
 #define KLIENCI_H
 
 #include <QWidget>
+#include <QtSql/QSqlRelationalTableModel>
 
 namespace Ui {
 class Klienci;
@@ -27,6 +28,8 @@ protected slots:
 private:
     QWidget *before;
     Ui::Klienci *ui;
+    QSqlRelationalTableModel model;
+    QString obecnaTabela;
 };
 
 #endif // KLIENCI_H

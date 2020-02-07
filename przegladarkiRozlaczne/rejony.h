@@ -2,7 +2,7 @@
 #define REJONY_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class Rejony;
 }
@@ -16,6 +16,17 @@ public:
 
     Rejony(QWidget *parent);
 private slots:
+
+    void on_uliceSwitch_clicked();
+
+    void on_rejonySwitch_clicked();
+
+    void on_obslugaBox_clicked();
+
+    void on_obslugaButton_clicked();
+
+    void on_uliceButton_clicked();
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();
@@ -27,6 +38,8 @@ protected slots:
 private:
     QWidget *before;
     Ui::Rejony *ui;
+    QString aktywnaTabela;
+    QSqlRelationalTableModel model;
 };
 
 #endif // REJONY_H

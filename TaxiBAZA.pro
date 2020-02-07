@@ -24,6 +24,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    Dialogi/dodajkierowce.cpp \
+    Dialogi/dodajklienta.cpp \
+    Dialogi/dodajnaprawe.cpp \
+    Dialogi/dodajobsluge.cpp \
+    Dialogi/dodajpromocje.cpp \
+    Dialogi/dodajprzejazd.cpp \
+    Dialogi/dodajrejon.cpp \
+    Dialogi/dodajstawke.cpp \
+    Dialogi/dodajubezpieczenie.cpp \
+    Dialogi/dodajulice.cpp \
         main.cpp \
     przegladarkiRozlaczne/kierowcypojazdy.cpp \
     przegladarkiRozlaczne/klienci.cpp \
@@ -37,10 +47,19 @@ SOURCES += \
     menu.cpp \
     przegladarka.cpp \
     raportdialog.cpp \
-    dodaj.cpp \
     wyszukaj.cpp
 
 HEADERS += \
+    Dialogi/dodajkierowce.h \
+    Dialogi/dodajklienta.h \
+    Dialogi/dodajnaprawe.h \
+    Dialogi/dodajobsluge.h \
+    Dialogi/dodajpromocje.h \
+    Dialogi/dodajprzejazd.h \
+    Dialogi/dodajrejon.h \
+    Dialogi/dodajstawke.h \
+    Dialogi/dodajubezpieczenie.h \
+    Dialogi/dodajulice.h \
     przegladarkiRozlaczne/kierowcypojazdy.h \
     przegladarkiRozlaczne/klienci.h \
     przegladarkiRozlaczne/naprawy.h \
@@ -53,10 +72,19 @@ HEADERS += \
     menu.h \
     przegladarka.h \
     raportdialog.h \
-    dodaj.h \
     wyszukaj.h
 
 FORMS += \
+    Dialogi/dodajkierowce.ui \
+    Dialogi/dodajklienta.ui \
+    Dialogi/dodajnaprawe.ui \
+    Dialogi/dodajobsluge.ui \
+    Dialogi/dodajpromocje.ui \
+    Dialogi/dodajprzejazd.ui \
+    Dialogi/dodajrejon.ui \
+    Dialogi/dodajstawke.ui \
+    Dialogi/dodajubezpieczenie.ui \
+    Dialogi/dodajulice.ui \
     przegladarkiRozlaczne/kierowcypojazdy.ui \
     przegladarkiRozlaczne/klienci.ui \
     przegladarkiRozlaczne/naprawy.ui \
@@ -69,5 +97,4 @@ FORMS += \
     menu.ui \
     przegladarka.ui \
     raportdialog.ui \
-    dodaj.ui \
     wyszukaj.ui

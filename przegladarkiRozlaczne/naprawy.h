@@ -2,7 +2,7 @@
 #define NAPRAWY_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class naprawy;
 }
@@ -27,6 +27,7 @@ protected slots:
 private:
     QWidget *before;
     Ui::naprawy *ui;
+    QSqlRelationalTableModel model;
 };
 
 #endif // NAPRAWY_H

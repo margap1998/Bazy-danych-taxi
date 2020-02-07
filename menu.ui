@@ -91,6 +91,13 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Aktywowane promocje</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
@@ -122,8 +129,8 @@
   <widget class="QPushButton" name="RaportPrzejazdyButton">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>80</y>
+     <x>370</x>
+     <y>90</y>
      <width>581</width>
      <height>81</height>
     </rect>
@@ -135,8 +142,8 @@
   <widget class="QPushButton" name="RaportPlacButton">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>170</y>
+     <x>370</x>
+     <y>350</y>
      <width>581</width>
      <height>81</height>
     </rect>

@@ -1,11 +1,14 @@
 #include "stawki.h"
 #include "ui_stawki.h"
 
+#include <Dialogi/dodajstawke.h>
+
 Stawki::Stawki(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Stawki)
 {
     ui->setupUi(this);
+    on_OdswierzButton_clicked();
 }
 
 Stawki::~Stawki()
@@ -19,6 +22,7 @@ Stawki::Stawki(QWidget *parent, QWidget *bef) :
     before =bef;
 
     ui->setupUi(this);
+    on_OdswierzButton_clicked();
 }
 
 
@@ -29,9 +33,16 @@ void Stawki::on_WrocButton_2_clicked()
     this->hide();
     delete this;
 }
-void Stawki::on_OdswierzButton_clicked(){}
+void Stawki::on_OdswierzButton_clicked(){
+    model.setTable("stawka");
+    model.select();
+    ui->tableView->setModel(&model);
+}
 
-void Stawki::on_DodajButton_2_clicked(){}
+void Stawki::on_DodajButton_2_clicked(){
+    DodajStawke *okn = new DodajStawke(this);
+    okn->show();
+}
 
 void Stawki::on_WyszukajButton_clicked(){}
 

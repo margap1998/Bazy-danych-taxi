@@ -2,7 +2,7 @@
 #define UBEZPIECZENIA_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class Ubezpieczenia;
 }
@@ -16,6 +16,14 @@ public:
 
     Ubezpieczenia(QWidget *parent);
 private slots:
+    void on_Minione_clicked();
+
+    void on_Aktualne_clicked();
+
+    void on_Wszystkie_clicked();
+
+    void on_zPojazdmi_stateChanged(int arg1);
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();
@@ -27,6 +35,8 @@ protected slots:
 private:
     QWidget *before;
     Ui::Ubezpieczenia *ui;
+    QString obecnaTabelka;
+    QSqlRelationalTableModel model;
 };
 
 #endif // UBEZPIECZENIA_H

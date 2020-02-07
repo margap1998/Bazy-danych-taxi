@@ -2,7 +2,7 @@
 #define PROMOCJE_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class Promocje;
 }
@@ -27,6 +27,7 @@ protected slots:
 private:
     QWidget *before;
     Ui::Promocje *ui;
+    QSqlRelationalTableModel model;
 };
 
 #endif // PROMOCJE_H

@@ -30,7 +30,7 @@
     <rect>
      <x>10</x>
      <y>480</y>
-     <width>121</width>
+     <width>211</width>
      <height>81</height>
     </rect>
    </property>
@@ -110,7 +110,43 @@
      <height>80</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="opcjeBazy"/>
+   <layout class="QHBoxLayout" name="opcjeBazy">
+    <item>
+     <widget class="QCheckBox" name="zPojazdmi">
+      <property name="text">
+       <string>Dołącz informację o pojazdach</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="Wszystkie">
+        <property name="text">
+         <string>Wszystkie</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="Aktualne">
+        <property name="text">
+         <string>Aktualne</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="Minione">
+        <property name="text">
+         <string>Minione</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

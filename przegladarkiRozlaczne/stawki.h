@@ -2,7 +2,7 @@
 #define STAWKI_H
 
 #include <QWidget>
-
+#include <QtSql/QSqlRelationalTableModel>
 namespace Ui {
 class Stawki;
 }
@@ -27,6 +27,7 @@ protected slots:
 private:
     QWidget *before;
     Ui::Stawki *ui;
+    QSqlRelationalTableModel model;
 };
 
 #endif // STAWKI_H

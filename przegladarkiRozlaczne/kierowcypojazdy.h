@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
+#include <QSqlRelationalTableModel>
+
 namespace Ui {
 class kierowcyPojazdy;
 }
@@ -16,6 +18,8 @@ public:
 
     explicit kierowcyPojazdy(QWidget *parent);
 private slots:
+    void on_ZatwierdzButton_2_clicked();
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();
@@ -28,6 +32,7 @@ private:
     QSqlDatabase db;
     QWidget *before;
     Ui::kierowcyPojazdy *ui;
+    QSqlRelationalTableModel model;
 };
 
 #endif // KIEROWCYPOJAZDY_H

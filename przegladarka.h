@@ -11,7 +11,6 @@ class Przegladarka : public QWidget
     Q_OBJECT
 public:
     explicit Przegladarka(QWidget *parent = 0,  QWidget *bef = 0);
-    explicit Przegladarka(QWidget *parent = 0,int mode,  QWidget *bef = 0);
     ~Przegladarka();
 
 private slots:

@@ -10,15 +10,6 @@ Przegladarka::Przegladarka(QWidget *parent, QWidget *bef) :
     ui->setupUi(this);
 }
 
-Przegladarka::Przegladarka(QWidget *parent, int mode, QWidget *bef) :
-    QWidget(parent),
-    ui(new Ui::Przegladarka)
-{
-    before =bef;
-
-    ui->setupUi(this);
-}
-
 Przegladarka::~Przegladarka()
 {
     delete ui;
