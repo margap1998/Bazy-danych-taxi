@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    Dialogi/dodajauto.cpp \
     Dialogi/dodajkierowce.cpp \
     Dialogi/dodajklienta.cpp \
     Dialogi/dodajnaprawe.cpp \
@@ -50,6 +51,7 @@ SOURCES += \
     wyszukaj.cpp
 
 HEADERS += \
+    Dialogi/dodajauto.h \
     Dialogi/dodajkierowce.h \
     Dialogi/dodajklienta.h \
     Dialogi/dodajnaprawe.h \
@@ -75,6 +77,7 @@ HEADERS += \
     wyszukaj.h
 
 FORMS += \
+    Dialogi/dodajauto.ui \
     Dialogi/dodajkierowce.ui \
     Dialogi/dodajklienta.ui \
     Dialogi/dodajnaprawe.ui \

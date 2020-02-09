@@ -2,6 +2,7 @@
 #include "ui_kierowcypojazdy.h"
 #include "../Dialogi/dodajkierowce.h"
 #include <QtSql>
+#include <Dialogi/dodajauto.h>
 kierowcyPojazdy::kierowcyPojazdy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::kierowcyPojazdy)
@@ -48,4 +49,10 @@ void kierowcyPojazdy::on_WyszukajButton_clicked(){
 void kierowcyPojazdy::on_ZatwierdzButton_2_clicked()
 {
     db.commit();
+}
+
+void kierowcyPojazdy::on_pushButton_clicked()
+{
+    auto *okn = new DodajAuto(this);
+    okn->show();
 }
