@@ -56,3 +56,8 @@ void kierowcyPojazdy::on_pushButton_clicked()
     auto *okn = new DodajAuto(this);
     okn->show();
 }
+
+void kierowcyPojazdy::on_UsunButton_clicked()
+{
+
+}

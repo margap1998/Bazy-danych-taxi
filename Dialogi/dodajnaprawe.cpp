@@ -10,7 +10,10 @@ DodajNaprawe::DodajNaprawe(QWidget *parent) :
     ui(new Ui::DodajNaprawe)
 {
     ui->setupUi(this);
-    model.setQuery("SELECT Numer_rejestracyjny FROM pojazdy");
+    modelK.setQuery("SELECT Numer_rejestracyjny FROM pojazd");
+    modelW.setQuery("SELECT Nazwa FROM warsztat");
+    ui->warsztatBox->setModel(&modelW);
+    ui->numerRejestracyjnyBox->setModel(&modelK);
 }
 
 DodajNaprawe::~DodajNaprawe()
@@ -18,7 +21,8 @@ DodajNaprawe::~DodajNaprawe()
     delete ui;
 }
 
-void DodajNaprawe::on_buttonBox_accepted()
+
+void DodajNaprawe::on_Ok_clicked()
 {
     QMessageBox *w =new QMessageBox();
     QString nrF = ui->numerFakturyLineEdit->text();
@@ -26,7 +30,7 @@ void DodajNaprawe::on_buttonBox_accepted()
     QString warsztat = ui->warsztatBox->currentText();
     QString nrRej = ui->numerRejestracyjnyBox->currentText();
     QString opis = ui->opisTextEdit->toPlainText();
-    QString koszt =ui->kosztDoubleSpinBox->text();
+    QString koszt = QVariant(ui->kosztDoubleSpinBox->value()).toString();
     QString pol= "INSER INTO naprawa(Numer_faktury,Data,Nazwa,Numer_rejestracyjny,Opis,Koszt) "
                     "VALUES('"+nrF+"',";
     pol.append("'"+data+"','"+warsztat+"',");
@@ -43,12 +47,13 @@ void DodajNaprawe::on_buttonBox_accepted()
         }
         if(!q1.exec())
         {
-            w->setText("Nieudana próba dodania nowego klienta");
+            w->setText("Nieudana próba dodania nowej naprawy");
             w->show();
         }
         else{
-            w->setText("Pomyślnie dodano nowego klienta");
+            w->setText("Pomyślnie dodano nową naprawę");
             w->show();
+            on_anuluj_clicked();
         }
     }
     else
@@ -58,8 +63,9 @@ void DodajNaprawe::on_buttonBox_accepted()
     }
 }
 
-void DodajNaprawe::on_buttonBox_rejected()
+void DodajNaprawe::on_anuluj_clicked()
 {
     this->hide();
     delete this;
 }
+

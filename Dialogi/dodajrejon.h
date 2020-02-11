@@ -16,7 +16,10 @@ public:
     ~DodajRejon();
 
 private slots:
-    void on_buttonBox_accepted();
+
+    void on_Ok_clicked();
+
+    void on_anuluj_clicked();
 
 private:
     Ui::DodajRejon *ui;

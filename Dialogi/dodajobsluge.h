@@ -19,6 +19,8 @@ private slots:
 
     void on_Ok_clicked();
 
+    void on_anuluj_clicked();
+
 private:
     Ui::DodajObsluge *ui;
     QSqlQueryModel modelR,modelK;

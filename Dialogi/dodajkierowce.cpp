@@ -14,7 +14,7 @@ DodajKierowce::~DodajKierowce()
     delete ui;
 }
 
-void DodajKierowce::on_buttonBox_accepted()
+void DodajKierowce::on_Ok_clicked()
 {
     QSqlQuery poj,kier;
     QMessageBox *w;
@@ -46,7 +46,7 @@ void DodajKierowce::on_buttonBox_accepted()
         qDebug()<<poj.lastError();
         qDebug()<<kier.lastError();
         w = new QMessageBox(parentWidget());
-        w->setText("Nie udało się przygotować procedury");
+        w->setText("Problem z przetworzenie danych");
         w->show();
         return;
     }
@@ -58,24 +58,32 @@ void DodajKierowce::on_buttonBox_accepted()
             if (kier.exec())
             {
                 w->setText("Dodanie kierowcy powiodło się");
+                on_anuluj_clicked();
             }else
             {
                 w->setText("Dodanie kierowcy nie powiodło się");
             }
         }else
         {
-            w->setText("Dodanie pojazdu i kierowcy nie powiodło się");
+            if (poj.exec())
+            {
+                if (kier.exec())
+                {
+                    w->setText("Pojazd o podanym numerze rejestracyjnym istnieje. Przypisano do niego danego kierowcę.");
+                }else
+                {
+                    w->setText("Dodanie kierowcy i pojazdu nie powiodło się");
+                }
+            }
         }
-        on_buttonBox_rejected();
-    }
-    else{
+    }else{
         w = new QMessageBox(this);
         w->setText("Proszę uzupełnić wszystkie pola");
     }
     w->show();
 }
 
-void DodajKierowce::on_buttonBox_rejected()
+void DodajKierowce::on_anuluj_clicked()
 {
     this->hide();
     delete this;

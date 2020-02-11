@@ -17,10 +17,9 @@ public:
     ~DodajUbezpieczenie();
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_Ok_clicked();
 
-    void on_buttonBox_rejected();
-
+    void on_anuluj_clicked();
 private:
     Ui::DodajUbezpieczenie *ui;
     QSqlQueryModel model;

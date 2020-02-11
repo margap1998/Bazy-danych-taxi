@@ -17,7 +17,8 @@ DodajKlienta::~DodajKlienta()
     delete ui;
 }
 
-void DodajKlienta::on_buttonBox_accepted()
+
+void DodajKlienta::on_Ok_clicked()
 {
     QString pol ="CALL Dodaj_Klienta('";
     QString nr = ui->numerTelefonuLineEdit->text();
@@ -50,6 +51,7 @@ void DodajKlienta::on_buttonBox_accepted()
         else{
             w->setText("Pomyślnie dodano nowego klienta");
             w->show();
+            on_anuluj_clicked();
         }
     }
     else
@@ -59,7 +61,7 @@ void DodajKlienta::on_buttonBox_accepted()
     }
 
 }
-void DodajKlienta::on_buttonBox_rejected()
+void DodajKlienta::on_anuluj_clicked()
 {
     this->hide();
     delete this;

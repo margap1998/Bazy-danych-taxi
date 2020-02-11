@@ -17,13 +17,13 @@ public:
     ~DodajNaprawe();
 
 private slots:
-    void on_buttonBox_rejected();
+    void on_anuluj_clicked();
 
-    void on_buttonBox_accepted();
+    void on_Ok_clicked();
 
 private:
     Ui::DodajNaprawe *ui;
-    QSqlQueryModel model;
+    QSqlQueryModel modelW, modelK;
 };
 
 #endif // DODAJNAPRAWE_H

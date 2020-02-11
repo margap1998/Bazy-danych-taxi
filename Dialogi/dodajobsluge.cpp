@@ -27,9 +27,9 @@ void DodajObsluge::on_Ok_clicked()
     QString rej = ui->rejonComboBox->currentText();
     QString pes = ui->kierowcaComboBox->currentText();
     QString pol = "INSERT INTO obsluga(Kierowca, Rejon) VALUES('"+pes+"','"+rej+"')";
-    QSqlQuery q1;
     if (!(rej == "" || pes==""))
     {
+        QSqlQuery q1;
         if(!q1.prepare(pol))
         {
             qDebug()<<pol<<"\n"<<q1.lastError();
@@ -45,6 +45,7 @@ void DodajObsluge::on_Ok_clicked()
         else{
             w->setText("Pomyślnie dodano kierowcę do obsługi rejonu");
             w->show();
+            on_anuluj_clicked();
         }
     }
     else
@@ -52,4 +53,10 @@ void DodajObsluge::on_Ok_clicked()
         w->setText("Proszę uzupełnić wszystkie pola");
         w->show();
     }
+}
+
+void DodajObsluge::on_anuluj_clicked()
+{
+    this->show();
+    delete this;
 }

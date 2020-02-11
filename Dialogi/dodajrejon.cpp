@@ -1,6 +1,9 @@
 #include "dodajrejon.h"
 #include "ui_dodajrejon.h"
 
+#include <QMessageBox>
+#include <QSqlQuery>
+
 DodajRejon::DodajRejon(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DodajRejon)
@@ -13,7 +16,40 @@ DodajRejon::~DodajRejon()
     delete ui;
 }
 
-void DodajRejon::on_buttonBox_accepted()
-{
 
+void DodajRejon::on_Ok_clicked()
+{
+    auto w = new QMessageBox();
+    QString rej = ui->lineEdit->text();
+    if (rej!= "")
+    {
+        QString pol = "INSERT INTO rejon VALUES('"+rej+"')";
+        QSqlQuery q1;
+        if(!q1.prepare(pol))
+        {
+            w->setText("Problem z przetworzeniem danych");
+            w->show();
+            return;
+        }
+        if(!q1.exec())
+        {
+            w->setText("Nieudana próba dodania rejonu");
+            w->show();
+        }
+        else{
+            w->setText("Pomyślnie dodano rejon");
+            w->show();
+            on_anuluj_clicked();
+        }
+    }
+    else
+    {
+        w->setText("Proszę uzupełnić wszystkie pola");
+        w->show();
+    }
+}
+void DodajRejon::on_anuluj_clicked()
+{
+    this->hide();
+    delete this;
 }

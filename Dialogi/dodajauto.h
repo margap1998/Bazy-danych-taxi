@@ -16,10 +16,10 @@ public:
     ~DodajAuto();
 
 private slots:
-    void on_buttonBox_accepted();
 
-    void on_buttonBox_rejected();
+    void on_anuluj_clicked();
 
+    void on_Ok_clicked();
 private:
     Ui::DodajAuto *ui;
 };

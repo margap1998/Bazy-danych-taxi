@@ -15,6 +15,10 @@ public:
     explicit DodajPrzejazd(QWidget *parent = nullptr);
     ~DodajPrzejazd();
 
+private slots:
+    void on_Ok_clicked();
+
+    void on_anuluj_clicked();
 private:
     Ui::DodajPrzejazd *ui;
     QSqlQueryModel modelK,modelS,modelN;

@@ -1,4 +1,3 @@
-#include "Awaryjne/niemabazy.h"
 #include "taxibaza.h"
 #include <QApplication>
 #include <QMessageBox>

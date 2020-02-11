@@ -15,6 +15,11 @@ public:
     explicit DodajPromocje(QWidget *parent = nullptr);
     ~DodajPromocje();
 
+private slots:
+    void on_Ok_clicked();
+
+    void on_anuluj_clicked();
+
 private:
     Ui::DodajPromocje *ui;
 };

@@ -18,7 +18,7 @@ DodajAuto::~DodajAuto()
     delete ui;
 }
 
-void DodajAuto::on_buttonBox_accepted()
+void DodajAuto::on_Ok_clicked()
 {
     QSqlQuery poj;
     QMessageBox *w;
@@ -38,13 +38,11 @@ void DodajAuto::on_buttonBox_accepted()
                   "'"+mod+"',"
                   ""+rocznik+","
                   "'"+przeg+"',"+rej_osb+")";
-        qDebug(pol.toStdString().c_str());
         if(!poj.prepare(pol))
         {
             w = new QMessageBox(parentWidget());
             w->setText("Nie udało się przygotować procedury");
             w->show();
-            qDebug(poj.lastError().text().toStdString().c_str());
             return;
         }
         w = new QMessageBox(parentWidget());
@@ -52,7 +50,7 @@ void DodajAuto::on_buttonBox_accepted()
         if (poj.exec())
         {
             w->setText("Dodanie pojazdu powiodło się");
-            on_buttonBox_rejected();
+            on_anuluj_clicked();
         }else
         {
             w->setText("Dodanie pojazdu nie powiodło się");
@@ -67,8 +65,10 @@ void DodajAuto::on_buttonBox_accepted()
 
 }
 
-void DodajAuto::on_buttonBox_rejected()
+
+void DodajAuto::on_anuluj_clicked()
 {
     this->hide();
     delete this;
+
 }
