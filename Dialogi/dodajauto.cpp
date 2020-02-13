@@ -2,8 +2,7 @@
 #include "ui_dodajauto.h"
 
 #include <QMessageBox>
-#include <QSqlQuery>
-#include <QSqlError>
+#include <QtSql>
 #include <QDebug>
 
 DodajAuto::DodajAuto(QWidget *parent) :
@@ -23,9 +22,10 @@ void DodajAuto::on_Ok_clicked()
     QSqlQuery poj;
     QMessageBox *w;
 
+
     QString nr_rej = ui->NumRLE->text();
     QString mar = ui->MarkaLE->text();
-    QString mod = ui->MarkaLE->text();
+    QString mod = ui->ModelLE->text();
     QString rocznik = ui->rocznikSpinBox->text();
     QString przeg = ui->dataPrzegladuDateEdit->date().toString("yyyy-MM-dd");
     QString rej_osb = ui->osobSpinBox->text();

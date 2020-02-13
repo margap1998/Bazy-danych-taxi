@@ -5,12 +5,19 @@
 #include <Dialogi/dodajrejon.h>
 #include <Dialogi/dodajulice.h>
 
+#include <QSqlRelationalDelegate>
+
+#include <Szukajki/szukajobslugi.h>
+#include <Szukajki/szukajrejonu.h>
+#include <Szukajki/szukajulicy.h>
+
 Rejony::Rejony(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Rejony)
 {
     ui->setupUi(this);
     on_rejonySwitch_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 Rejony::~Rejony()
@@ -24,6 +31,7 @@ Rejony::Rejony(QWidget *parent, QWidget *bef) :
     before =bef;
     ui->setupUi(this);
     on_rejonySwitch_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 
@@ -46,7 +54,21 @@ void Rejony::on_DodajButton_2_clicked(){\
     okn->show();
 }
 
-void Rejony::on_WyszukajButton_clicked(){}
+void Rejony::on_WyszukajButton_clicked(){
+    if (aktywnaTabela == "ulica")
+    {
+        auto okn = new szukajUlicy(&model,this);
+        okn->show();
+    }else if (aktywnaTabela== "rejon")
+    {
+        auto okn = new szukajRejonu(&model,this);
+        okn->show();
+    }else if (aktywnaTabela == "obsluga")
+    {
+        auto okn = new szukajObslugi(&model,this);
+        okn->show();
+    }
+}
 
 
 void Rejony::on_uliceSwitch_clicked()

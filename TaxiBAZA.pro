@@ -35,7 +35,19 @@ SOURCES += \
     Dialogi/dodajstawke.cpp \
     Dialogi/dodajubezpieczenie.cpp \
     Dialogi/dodajulice.cpp \
+    Szukajki/szukajaktywnejpromocji.cpp \
+    Szukajki/szukajklienta.cpp \
+    Szukajki/szukajnaprawy.cpp \
+    Szukajki/szukajpojazdu.cpp \
+    Szukajki/szukajkierowcy.cpp \
+    Szukajki/szukajobslugi.cpp \
+    Szukajki/szukajpromocji.cpp \
+    Szukajki/szukajprzejazdu.cpp \
+    Szukajki/szukajrejonu.cpp \
+    Szukajki/szukajubezpieczenia.cpp \
+    Szukajki/szukajulicy.cpp \
         main.cpp \
+    przegladarkiRozlaczne/aktywnepromocje.cpp \
     przegladarkiRozlaczne/kierowcypojazdy.cpp \
     przegladarkiRozlaczne/klienci.cpp \
     przegladarkiRozlaczne/naprawy.cpp \
@@ -62,6 +74,18 @@ HEADERS += \
     Dialogi/dodajstawke.h \
     Dialogi/dodajubezpieczenie.h \
     Dialogi/dodajulice.h \
+    Szukajki/szukajaktywnejpromocji.h \
+    Szukajki/szukajklienta.h \
+    Szukajki/szukajnaprawy.h \
+    Szukajki/szukajpojazdu.h \
+    Szukajki/szukajkierowcy.h \
+    Szukajki/szukajobslugi.h \
+    Szukajki/szukajpromocji.h \
+    Szukajki/szukajprzejazdu.h \
+    Szukajki/szukajrejonu.h \
+    Szukajki/szukajubezpieczenia.h \
+    Szukajki/szukajulicy.h \
+    przegladarkiRozlaczne/aktywnepromocje.h \
     przegladarkiRozlaczne/kierowcypojazdy.h \
     przegladarkiRozlaczne/klienci.h \
     przegladarkiRozlaczne/naprawy.h \
@@ -88,6 +112,18 @@ FORMS += \
     Dialogi/dodajstawke.ui \
     Dialogi/dodajubezpieczenie.ui \
     Dialogi/dodajulice.ui \
+    Szukajki/szukajaktywnejpromocji.ui \
+    Szukajki/szukajklienta.ui \
+    Szukajki/szukajnaprawy.ui \
+    Szukajki/szukajpojazdu.ui \
+    Szukajki/szukajkierowcy.ui \
+    Szukajki/szukajobslugi.ui \
+    Szukajki/szukajpromocji.ui \
+    Szukajki/szukajprzejazdu.ui \
+    Szukajki/szukajrejonu.ui \
+    Szukajki/szukajubezpieczenia.ui \
+    Szukajki/szukajulicy.ui \
+    przegladarkiRozlaczne/aktywnepromocje.ui \
     przegladarkiRozlaczne/kierowcypojazdy.ui \
     przegladarkiRozlaczne/klienci.ui \
     przegladarkiRozlaczne/naprawy.ui \

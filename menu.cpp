@@ -11,6 +11,7 @@
 #include "przegladarkiRozlaczne/przejazdy.h"
 #include "przegladarkiRozlaczne/stawki.h"
 #include <QtSql/QSqlDatabase>
+#include <przegladarkiRozlaczne/aktywnepromocje.h>
 
 Menu::Menu(QWidget *parent) :
     QWidget(parent),
@@ -88,4 +89,9 @@ void Menu::on_RaportPrzejazdyButton_clicked()
 void Menu::on_RaportPlacButton_clicked()
 {
     odpalPrzegladarke();
+}
+
+void Menu::on_pushButton_clicked()
+{
+    odpalPrzegladarke(new aktywnePromocje(parentWidget(),this));
 }

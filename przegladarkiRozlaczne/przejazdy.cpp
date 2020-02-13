@@ -3,6 +3,10 @@
 
 #include <Dialogi/dodajprzejazd.h>
 
+#include <QSqlRelationalDelegate>
+
+#include <Szukajki/szukajprzejazdu.h>
+
 Przejazdy::Przejazdy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Przejazdy)
@@ -24,6 +28,7 @@ Przejazdy::Przejazdy(QWidget *parent, QWidget *bef) :
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 
@@ -44,5 +49,8 @@ void Przejazdy::on_DodajButton_2_clicked(){
     okn->show();
 }
 
-void Przejazdy::on_WyszukajButton_clicked(){}
+void Przejazdy::on_WyszukajButton_clicked(){
+    auto okn = new szukajPrzejazdu(&model,this);
+    okn->show();
+}
 

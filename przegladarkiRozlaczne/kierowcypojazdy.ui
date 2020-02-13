@@ -60,7 +60,7 @@
      <x>680</x>
      <y>400</y>
      <width>311</width>
-     <height>166</height>
+     <height>168</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -79,11 +79,22 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="WyszukajButton">
-      <property name="text">
-       <string>Wyszukaj</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="WyszukajPojazdButton">
+        <property name="text">
+         <string>Wyszukaj pojazd</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="WyszukajKierowceButton">
+        <property name="text">
+         <string>Wyszukaj kierowcę</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="QPushButton" name="ZatwierdzButton_2">
@@ -110,7 +121,32 @@
      <height>80</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="opcjeBazy"/>
+   <layout class="QHBoxLayout" name="opcjeBazy">
+    <item>
+     <widget class="QRadioButton" name="kieroPoj">
+      <property name="text">
+       <string>Kierowcy z pojazdami</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="tylkoPojazdy">
+      <property name="text">
+       <string>Tylko pojazdy</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="TylkoKierowcy">
+      <property name="text">
+       <string>Tylko kierowcy</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">

@@ -74,7 +74,7 @@
     <item>
      <widget class="QPushButton" name="DodajButton_2">
       <property name="text">
-       <string>Dodaj</string>
+       <string>Dodaj naprawę</string>
       </property>
      </widget>
     </item>
@@ -110,7 +110,57 @@
      <height>80</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="opcjeBazy"/>
+   <layout class="QHBoxLayout" name="opcjeBazy">
+    <item>
+     <widget class="QRadioButton" name="napSam">
+      <property name="text">
+       <string>Naprawy + samochody</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="naprawy_2">
+      <property name="text">
+       <string>Same naprawy</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>497</y>
+     <width>121</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Zarządzaj
+warsztatami</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

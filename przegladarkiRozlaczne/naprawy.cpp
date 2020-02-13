@@ -2,13 +2,15 @@
 #include "ui_naprawy.h"
 
 #include <Dialogi/dodajnaprawe.h>
-
+#include <QtSql>
+#include <Szukajki/szukajnaprawy.h>
 naprawy::naprawy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::naprawy)
 {
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 void naprawy::on_WrocButton_2_clicked()
@@ -34,6 +36,8 @@ void naprawy::on_DodajButton_2_clicked()
 void naprawy::on_WyszukajButton_clicked()
 {
 
+    auto okn = new szukajNaprawy(&model,this);
+    okn->show();
 }
 
 naprawy::naprawy(QWidget *parent, QWidget *bef):
@@ -44,6 +48,7 @@ naprawy::naprawy(QWidget *parent, QWidget *bef):
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 naprawy::~naprawy()

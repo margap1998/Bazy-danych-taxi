@@ -120,8 +120,11 @@
     </item>
     <item row="8" column="1">
      <widget class="QDoubleSpinBox" name="dUgoTrasyDoubleSpinBox">
+      <property name="decimals">
+       <number>1</number>
+      </property>
       <property name="maximum">
-       <double>9999.989999999999782</double>
+       <double>10000.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -135,7 +138,7 @@
     <item row="9" column="1">
      <widget class="QDoubleSpinBox" name="cenaDoubleSpinBox">
       <property name="maximum">
-       <double>9999.989999999999782</double>
+       <double>99999.990000000005239</double>
       </property>
      </widget>
     </item>

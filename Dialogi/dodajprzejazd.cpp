@@ -37,7 +37,7 @@ void DodajPrzejazd::on_Ok_clicked()
     QString pol = "INSERT INTO `PolTAXI`.`Przejazd`"
         "(`Numer_paragonu`, `PESEL`, `Numer_telefonu`, `Stawka_Kod`, `Data_rozpoczecia`, `Dlugosc_trasy`, `Punkt_poczatkowy`, `Punk_koncowy`, `Czas_przejazdu`, `Cena`)"
         " VALUES ('"+nrPar+"','"+kierowca+"','"+nrTel+"', '"+stawka+"', '"+dataRoz+"', "+dlTrasy+", '"+pktPoc+"', '"+pktKon+"',"
-            "SEC_TO_TIME(TIMESTAMDIFF(SECOND,'"+dataRoz+"','"+dataZak+"')),"+z+")";
+            "SEC_TO_TIME(TIMESTAMPDIFF(SECOND,'"+dataRoz+"','"+dataZak+"')),"+z+")";
     if(kierowca==""||stawka==""||nrPar==""||nrTel==""||pktKon==""||pktPoc==""||dlTrasy==""||dataRoz==""||dataZak==""||z=="")
     {
         new QMessageBox(QMessageBox::Icon::Information,"","Proszę uzupełnić wszystkie pola");

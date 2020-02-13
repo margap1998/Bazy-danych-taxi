@@ -2,8 +2,7 @@
 #define KIEROWCYPOJAZDY_H
 
 #include <QWidget>
-#include <QSqlDatabase>
-#include <QSqlRelationalTableModel>
+#include <QtSql>
 
 namespace Ui {
 class kierowcyPojazdy;
@@ -24,19 +23,31 @@ private slots:
 
     void on_UsunButton_clicked();
 
+    void on_kieroPoj_clicked();
+
+    void on_tylkoPojazdy_clicked();
+
+    void on_TylkoKierowcy_clicked();
+
+    void on_WyszukajPojazdButton_clicked();
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();
 
     void on_DodajButton_2_clicked();
 
-    void on_WyszukajButton_clicked();
+    void on_WyszukajKierowceButton_clicked();
 
 private:
     QSqlDatabase db;
     QWidget *before;
     Ui::kierowcyPojazdy *ui;
     QSqlRelationalTableModel model;
+    int indeks;
+    QModelIndex r;
+    QString schemat;
+    QSqlRelationalDelegate *del;
 };
 
 #endif // KIEROWCYPOJAZDY_H

@@ -56,6 +56,8 @@ private slots:
 
     void on_RaportPlacButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Menu *ui;
     QSqlDatabase db;

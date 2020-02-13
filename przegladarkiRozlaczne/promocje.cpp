@@ -2,7 +2,8 @@
 #include "ui_promocje.h"
 
 #include <Dialogi/dodajpromocje.h>
-
+#include <QtSql>
+#include <Szukajki/szukajpromocji.h>
 Promocje::Promocje(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Promocje)
@@ -43,4 +44,6 @@ void Promocje::on_DodajButton_2_clicked(){
     okn->show();
 }
 
-void Promocje::on_WyszukajButton_clicked(){}
+void Promocje::on_WyszukajButton_clicked(){
+    auto okn = new szukajPromocji(&model,this);
+    okn->show();}

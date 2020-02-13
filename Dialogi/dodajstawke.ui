@@ -84,7 +84,6 @@
  </widget>
  <tabstops>
   <tabstop>kodLineEdit</tabstop>
-  <tabstop>cenaZaKilometrDoubleSpinBox</tabstop>
   <tabstop>opisPlainTextEdit</tabstop>
   <tabstop>Ok</tabstop>
   <tabstop>anuluj</tabstop>

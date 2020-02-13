@@ -3,6 +3,8 @@
 
 #include <Dialogi/dodajubezpieczenie.h>
 
+#include <QSqlRelationalDelegate>
+
 Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Ubezpieczenia)
@@ -10,6 +12,7 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 Ubezpieczenia::~Ubezpieczenia()
@@ -24,6 +27,7 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent, QWidget *bef) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 void Ubezpieczenia::on_WrocButton_2_clicked()
@@ -33,6 +37,7 @@ void Ubezpieczenia::on_WrocButton_2_clicked()
     delete this;
 }
 void Ubezpieczenia::on_OdswierzButton_clicked(){
+    ui->Wszystkie->setChecked(true);
     model.setTable(obecnaTabelka);
     model.select();
     ui->tableView->setModel(&model);
@@ -49,15 +54,15 @@ void Ubezpieczenia::on_WyszukajButton_clicked(){
 
 void Ubezpieczenia::on_Minione_clicked()
 {
-    model.setFilter("Data_zakonczenia < CURRENT_DATE");
-    on_OdswierzButton_clicked();
+    model.setFilter("Data_zakonczenia < CURRENT_DATE()");
+    model.sort(model.columnCount()-3,Qt::SortOrder::AscendingOrder);
 }
 
 void Ubezpieczenia::on_Aktualne_clicked()
 {
-    model.setFilter("Data_zakonczenia >= CURRENT_DATE");
-    model.sort(7,Qt::SortOrder::AscendingOrder);
-    on_OdswierzButton_clicked();
+    model.setFilter("Data_zakonczenia >= CURRENT_DATE()");
+    model.sort(model.columnCount()-3,Qt::SortOrder::AscendingOrder);
+    model.select();
 }
 
 void Ubezpieczenia::on_Wszystkie_clicked()
@@ -68,11 +73,14 @@ void Ubezpieczenia::on_Wszystkie_clicked()
 
 void Ubezpieczenia::on_zPojazdmi_stateChanged(int arg1)
 {
+    QString filtr = model.filter();
     if (arg1 == Qt::Checked){
         obecnaTabelka = "pojazdy_z_ubezpieczeniem";
-        on_OdswierzButton_clicked();
     }else{
         obecnaTabelka = "ubezpieczenie";
-        on_OdswierzButton_clicked();
     }
+
+    model.setTable(obecnaTabelka);
+    model.setFilter(filtr);
+    model.select();
 }
