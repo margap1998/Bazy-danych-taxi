@@ -16,6 +16,10 @@ public:
     explicit szukajpojazdu(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajpojazdu();
 
+private slots:
+    void on_wrocButton_clicked();
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajpojazdu *ui;
     QSqlRelationalTableModel *modelR;

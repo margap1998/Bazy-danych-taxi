@@ -16,6 +16,11 @@ public:
     explicit szukajAktywnejPromocji(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajAktywnejPromocji();
 
+private slots:
+    void on_wrocButton_clicked();
+
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajAktywnejPromocji *ui;
     QSqlRelationalTableModel *modelR;

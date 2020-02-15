@@ -42,7 +42,7 @@ void aktywnePromocje::on_ZatwierdzButton_2_clicked()
 {
     QSqlDatabase db = QSqlDatabase::database();
     db.commit();
-    db.lastError().type();
+    model.submit();
 }
 
 void aktywnePromocje::on_UsunButton_clicked()

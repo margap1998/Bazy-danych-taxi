@@ -16,6 +16,10 @@ public:
     explicit szukajNaprawy(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajNaprawy();
 
+private slots:
+    void on_wrocButton_clicked();
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajNaprawy *ui;
     QSqlRelationalTableModel *modelR;

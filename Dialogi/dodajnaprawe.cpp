@@ -26,7 +26,7 @@ void DodajNaprawe::on_Ok_clicked()
 {
     QMessageBox *w =new QMessageBox();
     QString nrF = ui->numerFakturyLineEdit->text();
-    QString data = ui->dataWykonaniaLabel->text();
+    QString data = ui->dataWykonaniaDateEdit->text();
     QString warsztat = ui->warsztatBox->currentText();
     QString nrRej = ui->numerRejestracyjnyBox->currentText();
     QString opis = ui->opisTextEdit->toPlainText();
@@ -34,7 +34,7 @@ void DodajNaprawe::on_Ok_clicked()
     QString pol= "INSER INTO naprawa(Numer_faktury,Data,Nazwa,Numer_rejestracyjny,Opis,Koszt) "
                     "VALUES('"+nrF+"',";
     pol.append("'"+data+"','"+warsztat+"',");
-    pol.append("'"+nrRej+"','"+opis+"','"+koszt+"')");
+    pol.append("'"+nrRej+"','"+opis+"',"+koszt+")");
     QSqlQuery q1;
     if (!(nrF == "" || data==""||warsztat==""||nrRej==""||opis==""||koszt==""))
     {

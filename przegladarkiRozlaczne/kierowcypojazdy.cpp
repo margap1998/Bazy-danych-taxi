@@ -44,9 +44,12 @@ void kierowcyPojazdy::on_WrocButton_2_clicked()
 void kierowcyPojazdy::on_OdswierzButton_clicked(){
     delete del;
     model.setTable(schemat);
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::AllEditTriggers);
     if(schemat=="kierowcypojazdy")
     {
+        ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
         model.setRelation(0,QSqlRelation("pojazd","Numer_rejestracyjny","Numer_rejestracyjny"));
+        //model.setEditStrategy()
     }else if (schemat == "kierowca")
     {
         model.setRelation(1,QSqlRelation("pojazd","Numer_rejestracyjny","Numer_rejestracyjny"));
@@ -71,6 +74,7 @@ void kierowcyPojazdy::on_WyszukajKierowceButton_clicked(){
 
 void kierowcyPojazdy::on_ZatwierdzButton_2_clicked()
 {
+    model.submit();
     db.commit();
 }
 
@@ -107,4 +111,5 @@ void kierowcyPojazdy::on_TylkoKierowcy_clicked()
 void kierowcyPojazdy::on_WyszukajPojazdButton_clicked()
 {
     auto okn = new szukajpojazdu(&model,this);
+    okn->show();
 }

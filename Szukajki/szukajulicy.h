@@ -16,6 +16,10 @@ public:
     explicit szukajUlicy(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajUlicy();
 
+private slots:
+    void on_wrocButton_clicked();
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajUlicy *ui;
     QSqlRelationalTableModel *modelR;

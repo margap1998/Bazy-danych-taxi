@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>321</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>250</y>
+     <y>280</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>250</y>
+     <y>280</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -45,57 +45,67 @@
      <x>20</x>
      <y>20</y>
      <width>361</width>
-     <height>212</height>
+     <height>231</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="5" column="1">
-     <widget class="QDateEdit" name="doDateEdit">
-      <property name="displayFormat">
-       <string>yyyy-MM-dd</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QDateEdit" name="odDateEdit">
-      <property name="displayFormat">
-       <string>yyyy-MM-dd</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
+    <item row="6" column="1">
      <widget class="QCheckBox" name="DocheckBox">
       <property name="text">
        <string>Zatrudniony do daty</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QCheckBox" name="odCheckBox">
+    <item row="0" column="0" colspan="2">
+     <widget class="QCheckBox" name="PESELDB">
       <property name="text">
-       <string>Zatrudnienie od daty</string>
+       <string>PESEL</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QDateEdit" name="odDateEdit">
+      <property name="displayFormat">
+       <string>yyyy-MM-dd</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QDateEdit" name="doDateEdit">
+      <property name="displayFormat">
+       <string>yyyy-MM-dd</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
-     <widget class="QLineEdit" name="NazwiskoLE"/>
-    </item>
-    <item row="1" column="0" colspan="2">
      <widget class="QLineEdit" name="imieLE"/>
     </item>
-    <item row="0" column="0" colspan="2">
+    <item row="4" column="0" colspan="2">
+     <widget class="QCheckBox" name="nazwiskoCB">
+      <property name="text">
+       <string>Nazwisko</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
      <widget class="QCheckBox" name="imieCB">
       <property name="text">
        <string>Imię</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QCheckBox" name="nazwiskoCB">
+    <item row="5" column="0" colspan="2">
+     <widget class="QLineEdit" name="NazwiskoLE"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="odCheckBox">
       <property name="text">
-       <string>Nazwisko</string>
+       <string>Zatrudnienie od daty</string>
       </property>
      </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLineEdit" name="PESELLE"/>
     </item>
    </layout>
   </widget>

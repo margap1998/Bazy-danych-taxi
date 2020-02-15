@@ -37,6 +37,7 @@ SOURCES += \
     Dialogi/dodajulice.cpp \
     Szukajki/szukajaktywnejpromocji.cpp \
     Szukajki/szukajklienta.cpp \
+    Szukajki/szukajkodu.cpp \
     Szukajki/szukajnaprawy.cpp \
     Szukajki/szukajpojazdu.cpp \
     Szukajki/szukajkierowcy.cpp \
@@ -60,6 +61,7 @@ SOURCES += \
     menu.cpp \
     przegladarka.cpp \
     raportdialog.cpp \
+    warsztat.cpp \
     wyszukaj.cpp
 
 HEADERS += \
@@ -76,6 +78,7 @@ HEADERS += \
     Dialogi/dodajulice.h \
     Szukajki/szukajaktywnejpromocji.h \
     Szukajki/szukajklienta.h \
+    Szukajki/szukajkodu.h \
     Szukajki/szukajnaprawy.h \
     Szukajki/szukajpojazdu.h \
     Szukajki/szukajkierowcy.h \
@@ -98,6 +101,7 @@ HEADERS += \
     menu.h \
     przegladarka.h \
     raportdialog.h \
+    warsztat.h \
     wyszukaj.h
 
 FORMS += \
@@ -114,6 +118,7 @@ FORMS += \
     Dialogi/dodajulice.ui \
     Szukajki/szukajaktywnejpromocji.ui \
     Szukajki/szukajklienta.ui \
+    Szukajki/szukajkodu.ui \
     Szukajki/szukajnaprawy.ui \
     Szukajki/szukajpojazdu.ui \
     Szukajki/szukajkierowcy.ui \
@@ -136,4 +141,5 @@ FORMS += \
     menu.ui \
     przegladarka.ui \
     raportdialog.ui \
+    warsztat.ui \
     wyszukaj.ui

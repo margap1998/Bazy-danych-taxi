@@ -16,6 +16,10 @@ public:
     explicit szukajKierowcy(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajKierowcy();
 
+private slots:
+    void on_wrocButton_clicked();
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajKierowcy *ui;
     QSqlRelationalTableModel *modelR;

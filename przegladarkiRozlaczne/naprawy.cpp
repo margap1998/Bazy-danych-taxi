@@ -3,6 +3,7 @@
 
 #include <Dialogi/dodajnaprawe.h>
 #include <QtSql>
+#include <warsztat.h>
 #include <Szukajki/szukajnaprawy.h>
 naprawy::naprawy(QWidget *parent) :
     QWidget(parent),
@@ -54,4 +55,10 @@ naprawy::naprawy(QWidget *parent, QWidget *bef):
 naprawy::~naprawy()
 {
     delete ui;
+}
+
+void naprawy::on_pushButton_clicked()
+{
+    auto okn = new warsztat(this);
+    okn->show();
 }

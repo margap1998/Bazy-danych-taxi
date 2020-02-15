@@ -84,7 +84,7 @@
      </widget>
     </item>
     <item row="9" column="0">
-     <widget class="QDoubleSpinBox" name="dodUgoTrasyDoubleSpinBox">
+     <widget class="QDoubleSpinBox" name="odUgoTrasyDoubleSpinBox">
       <property name="decimals">
        <number>1</number>
       </property>
@@ -183,7 +183,7 @@
      </widget>
     </item>
     <item row="13" column="1">
-     <widget class="QDateTimeEdit" name="oddataRozpoczeciaDateTimeEdit_2">
+     <widget class="QDateTimeEdit" name="dodataRozpoczeciaDateTimeEdit">
       <property name="displayFormat">
        <string>yyyy-MM-dd HH:mm:ss</string>
       </property>

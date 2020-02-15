@@ -125,7 +125,8 @@
     <item>
      <widget class="QRadioButton" name="kieroPoj">
       <property name="text">
-       <string>Kierowcy z pojazdami</string>
+       <string>Kierowcy z pojazdami
+(bez możliwości edycji)</string>
       </property>
       <property name="checked">
        <bool>true</bool>

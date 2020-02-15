@@ -16,6 +16,10 @@ public:
     explicit szukajUbezpieczenia(QSqlRelationalTableModel *model, QWidget *parent = nullptr);
     ~szukajUbezpieczenia();
 
+private slots:
+    void on_wrocButton_clicked();
+    void on_szukajButton_clicked();
+
 private:
     Ui::szukajUbezpieczenia *ui;
     QSqlRelationalTableModel *modelR;

@@ -5,6 +5,8 @@
 
 #include <QSqlRelationalDelegate>
 
+#include <Szukajki/szukajubezpieczenia.h>
+
 Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Ubezpieczenia)
@@ -39,6 +41,10 @@ void Ubezpieczenia::on_WrocButton_2_clicked()
 void Ubezpieczenia::on_OdswierzButton_clicked(){
     ui->Wszystkie->setChecked(true);
     model.setTable(obecnaTabelka);
+    if(obecnaTabelka == "ubezpieczenie")
+    {
+        model.setRelation(1,QSqlRelation({"pojazd","Numer_rejestracyjny","Numer_rejestracyjny"}));
+    }
     model.select();
     ui->tableView->setModel(&model);
 }
@@ -49,6 +55,8 @@ void Ubezpieczenia::on_DodajButton_2_clicked(){
 }
 
 void Ubezpieczenia::on_WyszukajButton_clicked(){
+    auto okn = new szukajUbezpieczenia(&model,this);
+    okn->show();
 }
 
 
