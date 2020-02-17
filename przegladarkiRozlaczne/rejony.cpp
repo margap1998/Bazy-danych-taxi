@@ -7,6 +7,10 @@
 
 #include <QSqlRelationalDelegate>
 
+#include <Usuwanie/usunrejon.h>
+#include <Usuwanie/usunobsluge.h>
+#include <Usuwanie/usunulice.h>
+
 #include <Szukajki/szukajobslugi.h>
 #include <Szukajki/szukajrejonu.h>
 #include <Szukajki/szukajulicy.h>
@@ -50,8 +54,19 @@ void Rejony::on_OdswierzButton_clicked(){
 }
 
 void Rejony::on_DodajButton_2_clicked(){\
-    DodajRejon *okn = new DodajRejon();
-    okn->show();
+    if (aktywnaTabela == "ulica")
+    {
+        auto okn =(new DodajUlice(this));
+        okn->show();
+    }else if (aktywnaTabela== "rejon")
+    {
+        auto okn=(new DodajRejon(this));
+        okn->show();
+    }else if (aktywnaTabela == "obsluga")
+    {
+        auto okn =(new DodajObsluge(this));
+        okn->show();
+    }
 }
 
 void Rejony::on_WyszukajButton_clicked(){
@@ -99,4 +114,20 @@ void Rejony::on_uliceButton_clicked()
 {
     DodajUlice *okn = new DodajUlice();
     okn->show();
+}
+
+void Rejony::on_UsunButton_clicked()
+{    if (aktywnaTabela == "ulica")
+    {
+        auto okn =(new usunUlice(this));
+        okn->show();
+    }else if (aktywnaTabela== "rejon")
+    {
+        auto okn =(new usunrejon(this));
+        okn->show();
+    }else if (aktywnaTabela == "obsluga")
+    {
+        auto okn=(new usunObsluge(this));
+        okn->show();
+    }
 }

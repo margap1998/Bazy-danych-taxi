@@ -4,7 +4,7 @@
 #include <Dialogi/dodajstawke.h>
 
 #include <Szukajki/szukajkodu.h>
-
+#include <Usuwanie/usunstawke.h>
 Stawki::Stawki(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Stawki)
@@ -48,5 +48,11 @@ void Stawki::on_DodajButton_2_clicked(){
 
 void Stawki::on_WyszukajButton_clicked(){
     auto okn = new szukajKodu(&model,this);
+    okn->show();
+}
+
+void Stawki::on_UsunButton_clicked()
+{
+    auto okn =(new UsunStawke(this));
     okn->show();
 }

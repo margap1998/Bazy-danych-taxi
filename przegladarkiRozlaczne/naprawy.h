@@ -18,6 +18,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_naprawy_2_clicked();
+
+    void on_napSam_clicked();
+
+    void on_UsunButton_clicked();
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();
@@ -29,6 +35,7 @@ protected slots:
 private:
     QWidget *before;
     Ui::naprawy *ui;
+    QString aktywnaTabela;
     QSqlRelationalTableModel model;
 };
 

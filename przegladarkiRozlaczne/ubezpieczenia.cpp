@@ -7,6 +7,7 @@
 
 #include <Szukajki/szukajubezpieczenia.h>
 
+#include <Usuwanie/usunubezpieczenie.h>
 Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Ubezpieczenia)
@@ -91,4 +92,10 @@ void Ubezpieczenia::on_zPojazdmi_stateChanged(int arg1)
     model.setTable(obecnaTabelka);
     model.setFilter(filtr);
     model.select();
+}
+
+void Ubezpieczenia::on_UsunButton_clicked()
+{
+    auto okn =(new UsunUbezpieczenie(this));
+    okn->show();
 }

@@ -1,6 +1,8 @@
 #include "szukajpromocji.h"
 #include "ui_szukajpromocji.h"
 
+#include <QMessageBox>
+
 szukajPromocji::szukajPromocji(QSqlRelationalTableModel *model, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::szukajPromocji)
@@ -22,19 +24,58 @@ void szukajPromocji::on_wrocButton_clicked()
 
 void szukajPromocji::on_szukajButton_clicked()
 {
-    if (ui->kodCB->isChecked()){}
-    if (ui->nazwaCB->isChecked()){}
-    if (ui->odKwotaCB->isChecked()){}
-    if (ui->doKwotaCB->isChecked()){}
-    if (ui->odProcentCB->isChecked()){}
-    if (ui->doProcentCB->isChecked()){}
+    QString filtr = "";
+    if (ui->kodCB->isChecked()){
+        QString kodProm = ui->kodLE->text();
+        if (kodProm == "")
+        {
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Proszę uzupełnić kod lub odznaczyć szukanie po kodzie promocji"))->show();
+            return;
+        }
+        filtr = filtr+"Kod LIKE '%"+ kodProm +"%'";
+    }
+    if (ui->nazwaCB->isChecked()){
+        QString naz = ui->nazwaLE->text();
+        if (naz == "")
+        {
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Proszę uzupełnić nazwę promocji lub odznaczyć szukanie po nazwie"))->show();
+            return;
+        }
+        if (filtr!="") filtr = filtr + " AND ";
+        filtr+="Nazwa LIKE '%"+naz+"%'";
+    }
+    if (ui->odKwotaCB->isChecked()){
+        QString koszt = QVariant(ui->odKwotaDSB->value()).toString();
+        if (filtr!="")filtr+=" AND ";
+        filtr+="Kwota >= "+koszt;
+    }
+    if (ui->doKwotaCB->isChecked()){
+        QString koszt = QVariant(ui->doKwotaDSB->value()).toString();
+        if (filtr!="")filtr+=" AND ";
+        filtr+="Kwota <= "+koszt;
+    }
+    if (ui->odProcentCB->isChecked()){
+        QString pr = ui->odProcentZniKiSpinBox->text();
+        if (filtr!="")filtr+=" AND ";
+        filtr+="Procent_znizki >= "+pr;
+    }
+    if (ui->doProcentCB->isChecked()){
+        QString pr = ui->doProcentZniKiSpinBox->text();
+        if (filtr!="")filtr+=" AND ";
+        filtr+="Procent_znizki <= "+pr;
+    }
 
-    if ((ui->odKwotaDSB->value()>ui->doKwotaDSB->value()) && ui->odKwotaCB->isChecked() && ui->doKwotaCB->isChecked()){}
+    if ((ui->odKwotaDSB->value()>ui->doKwotaDSB->value()) && ui->odKwotaCB->isChecked() && ui->doKwotaCB->isChecked()){
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Kwota \"od\" jest większa od kwoty \"do\". Odznacz lub popraw jedną z kwót"))->show();
+        return;
+    }
 
     if ((ui->odProcentZniKiSpinBox->value()>ui->doProcentZniKiSpinBox->value())&&
-            ui->odProcentCB->isChecked()&&ui->doProcentCB->isChecked()){}
+            ui->odProcentCB->isChecked()&&ui->doProcentCB->isChecked()){
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Procent zniżki \"od\" jest większa od procenta \"do\". Odznacz lub popraw jeden z procentów"))->show();
+        return;
+    }
 
-    QString filtr = modelR->filter();
     modelR->setFilter(filtr);
     modelR->select();
     on_wrocButton_clicked();

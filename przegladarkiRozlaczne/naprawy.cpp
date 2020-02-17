@@ -5,14 +5,14 @@
 #include <QtSql>
 #include <warsztat.h>
 #include <Szukajki/szukajnaprawy.h>
+#include <Usuwanie/usunnaprawe.h>
 naprawy::naprawy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::naprawy)
 {
     ui->setupUi(this);
-    on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
-}
+    aktywnaTabela = "naprawa";
+    on_OdswierzButton_clicked();}
 
 void naprawy::on_WrocButton_2_clicked()
 {
@@ -23,7 +23,7 @@ void naprawy::on_WrocButton_2_clicked()
 
 void naprawy::on_OdswierzButton_clicked()
 {
-    model.setTable("naprawa");
+    model.setTable(aktywnaTabela);
     model.select();
     ui->tableView->setModel(&model);
 }
@@ -48,9 +48,10 @@ naprawy::naprawy(QWidget *parent, QWidget *bef):
     before =bef;
 
     ui->setupUi(this);
+    aktywnaTabela = "naprawa";
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
+
 
 naprawy::~naprawy()
 {
@@ -60,5 +61,23 @@ naprawy::~naprawy()
 void naprawy::on_pushButton_clicked()
 {
     auto okn = new warsztat(this);
+    okn->show();
+}
+
+void naprawy::on_naprawy_2_clicked()
+{
+    aktywnaTabela = "naprawawarsztat";
+    on_OdswierzButton_clicked();
+}
+
+void naprawy::on_napSam_clicked()
+{
+    aktywnaTabela = "naprawapojazd";
+    on_OdswierzButton_clicked();
+}
+
+void naprawy::on_UsunButton_clicked()
+{
+    auto okn = (new UsunNaprawe(this));
     okn->show();
 }

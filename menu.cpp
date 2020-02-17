@@ -20,6 +20,14 @@ Menu::Menu(QWidget *parent) :
     db = QSqlDatabase::database();
     ui->setupUi(this);
 }
+Menu::Menu(QWidget *bef,QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Menu)
+{
+    before =bef;
+    db = QSqlDatabase::database();
+    ui->setupUi(this);
+}
 
 Menu::~Menu()
 {
@@ -75,6 +83,10 @@ void Menu::on_PromocjaButton_clicked()
 
 void Menu::on_WylogujButton_clicked()
 {
+    db.close();
+    before->show();
+    this->hide();
+    delete this;
 }
 
 void Menu::on_WylaczButton_clicked()

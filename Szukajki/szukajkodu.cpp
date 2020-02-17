@@ -1,6 +1,8 @@
 #include "szukajkodu.h"
 #include "ui_szukajkodu.h"
 
+#include <QMessageBox>
+
 szukajKodu::szukajKodu(QSqlRelationalTableModel *model, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::szukajKodu)
@@ -25,18 +27,23 @@ void szukajKodu::on_szukajButton_clicked()
     QString filtr ="";
     if(ui->kodCB->isChecked()){
         QString kod = ui->kodLE->text();
-
+        if(kod==""){
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij kod stawki lub odznacz wyszukiwanie po kodzie stawki"))->show();
+            return;
+        }
         filtr += "CAST(kod AS CHAR) LIKE '%"+kod+"%'";
     }
     if(ui->nazwaCB->isChecked()){
         QString nazwa;
+        if(nazwa==""){
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij słowo lub odznacz wyszukiwanie po słowie z opisu"))->show();
+            return;
+        }
         if (filtr!="") filtr+=" AND ";
-
-        filtr += "nazwa LIKE '%"+nazwa+"%'";
+        filtr += "nazwa LIKE '"+nazwa+"'";
     }
     if(ui->odCenyCB->isChecked()){
         QString odCena = QVariant(ui->odCenyDSB->value()).toString();
-
         if (filtr!="")filtr+=" AND ";
         filtr+=" Cena_za_km>="+odCena;
     }
@@ -47,6 +54,7 @@ void szukajKodu::on_szukajButton_clicked()
     }
     if(ui->odCenyCB->isChecked() && ui->doCenyCB->isChecked()){
         if(ui->odCenyDSB->value()>ui->doCenyDSB->value()) {
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Cena \"od\" jest większa od daty \"do\", odznacz lub popraw jedną z cen"))->show();
             return;
         }
     }

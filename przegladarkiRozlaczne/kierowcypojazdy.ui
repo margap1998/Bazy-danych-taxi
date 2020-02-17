@@ -29,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>480</y>
+     <y>490</y>
      <width>121</width>
      <height>81</height>
     </rect>
@@ -58,9 +58,9 @@
    <property name="geometry">
     <rect>
      <x>680</x>
-     <y>400</y>
+     <y>390</y>
      <width>311</width>
-     <height>168</height>
+     <height>204</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -79,18 +79,46 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Dodaj tylko pojazd</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="UsunButton">
+        <property name="text">
+         <string>Usuń kierowcę</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Dodaj samego kierowcę</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="WyszukajKierowceButton">
+        <property name="text">
+         <string>Wyszukaj kierowcę</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
        <widget class="QPushButton" name="WyszukajPojazdButton">
         <property name="text">
          <string>Wyszukaj pojazd</string>
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="WyszukajKierowceButton">
+      <item row="1" column="1">
+       <widget class="QPushButton" name="usunPojazdButton">
         <property name="text">
-         <string>Wyszukaj kierowcę</string>
+         <string>Usuń pojazd</string>
         </property>
        </widget>
       </item>
@@ -103,20 +131,13 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="UsunButton">
-      <property name="text">
-       <string>Usuń</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>400</y>
+     <y>390</y>
      <width>661</width>
      <height>80</height>
     </rect>
@@ -144,32 +165,6 @@
      <widget class="QRadioButton" name="TylkoKierowcy">
       <property name="text">
        <string>Tylko kierowcy</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>490</y>
-     <width>160</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Dodaj samego kierowcę</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Dodaj tylko pojazd</string>
       </property>
      </widget>
     </item>

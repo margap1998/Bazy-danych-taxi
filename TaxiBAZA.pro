@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    Dialogi/dodajaktywowanopromocje.cpp \
     Dialogi/dodajauto.cpp \
     Dialogi/dodajkierowce.cpp \
     Dialogi/dodajklienta.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
     Dialogi/dodajprzejazd.cpp \
     Dialogi/dodajrejon.cpp \
     Dialogi/dodajstawke.cpp \
+    Dialogi/dodajtylkokierowce.cpp \
     Dialogi/dodajubezpieczenie.cpp \
     Dialogi/dodajulice.cpp \
     Szukajki/szukajaktywnejpromocji.cpp \
@@ -47,6 +49,20 @@ SOURCES += \
     Szukajki/szukajrejonu.cpp \
     Szukajki/szukajubezpieczenia.cpp \
     Szukajki/szukajulicy.cpp \
+    Usuwanie/usunaktywnapromocje.cpp \
+    Usuwanie/usunkierowce.cpp \
+    Usuwanie/usunklienta.cpp \
+    Usuwanie/usunnaprawe.cpp \
+    Usuwanie/usunobsluge.cpp \
+    Usuwanie/usunpojazd.cpp \
+    Usuwanie/usunpromocje.cpp \
+    Usuwanie/usunprzejazdy.cpp \
+    Usuwanie/usunrejon.cpp \
+    Usuwanie/usunstawke.cpp \
+    Usuwanie/usunubezpieczenie.cpp \
+    Usuwanie/usunulice.cpp \
+    Usuwanie/usunwarsztat.cpp \
+    logowanie.cpp \
         main.cpp \
     przegladarkiRozlaczne/aktywnepromocje.cpp \
     przegladarkiRozlaczne/kierowcypojazdy.cpp \
@@ -65,6 +81,7 @@ SOURCES += \
     wyszukaj.cpp
 
 HEADERS += \
+    Dialogi/dodajaktywowanopromocje.h \
     Dialogi/dodajauto.h \
     Dialogi/dodajkierowce.h \
     Dialogi/dodajklienta.h \
@@ -74,6 +91,7 @@ HEADERS += \
     Dialogi/dodajprzejazd.h \
     Dialogi/dodajrejon.h \
     Dialogi/dodajstawke.h \
+    Dialogi/dodajtylkokierowce.h \
     Dialogi/dodajubezpieczenie.h \
     Dialogi/dodajulice.h \
     Szukajki/szukajaktywnejpromocji.h \
@@ -88,6 +106,20 @@ HEADERS += \
     Szukajki/szukajrejonu.h \
     Szukajki/szukajubezpieczenia.h \
     Szukajki/szukajulicy.h \
+    Usuwanie/usunaktywnapromocje.h \
+    Usuwanie/usunkierowce.h \
+    Usuwanie/usunklienta.h \
+    Usuwanie/usunnaprawe.h \
+    Usuwanie/usunobsluge.h \
+    Usuwanie/usunpojazd.h \
+    Usuwanie/usunpromocje.h \
+    Usuwanie/usunprzejazdy.h \
+    Usuwanie/usunrejon.h \
+    Usuwanie/usunstawke.h \
+    Usuwanie/usunubezpieczenie.h \
+    Usuwanie/usunulice.h \
+    Usuwanie/usunwarsztat.h \
+    logowanie.h \
     przegladarkiRozlaczne/aktywnepromocje.h \
     przegladarkiRozlaczne/kierowcypojazdy.h \
     przegladarkiRozlaczne/klienci.h \
@@ -105,6 +137,7 @@ HEADERS += \
     wyszukaj.h
 
 FORMS += \
+    Dialogi/dodajaktywowanopromocje.ui \
     Dialogi/dodajauto.ui \
     Dialogi/dodajkierowce.ui \
     Dialogi/dodajklienta.ui \
@@ -114,6 +147,7 @@ FORMS += \
     Dialogi/dodajprzejazd.ui \
     Dialogi/dodajrejon.ui \
     Dialogi/dodajstawke.ui \
+    Dialogi/dodajtylkokierowce.ui \
     Dialogi/dodajubezpieczenie.ui \
     Dialogi/dodajulice.ui \
     Szukajki/szukajaktywnejpromocji.ui \
@@ -128,6 +162,20 @@ FORMS += \
     Szukajki/szukajrejonu.ui \
     Szukajki/szukajubezpieczenia.ui \
     Szukajki/szukajulicy.ui \
+    Usuwanie/usunaktywnapromocje.ui \
+    Usuwanie/usunkierowce.ui \
+    Usuwanie/usunklienta.ui \
+    Usuwanie/usunnaprawe.ui \
+    Usuwanie/usunobsluge.ui \
+    Usuwanie/usunpojazd.ui \
+    Usuwanie/usunpromocje.ui \
+    Usuwanie/usunprzejazdy.ui \
+    Usuwanie/usunrejon.ui \
+    Usuwanie/usunstawke.ui \
+    Usuwanie/usunubezpieczenie.ui \
+    Usuwanie/usunulice.ui \
+    Usuwanie/usunwarsztat.ui \
+    logowanie.ui \
     przegladarkiRozlaczne/aktywnepromocje.ui \
     przegladarkiRozlaczne/kierowcypojazdy.ui \
     przegladarkiRozlaczne/klienci.ui \

@@ -30,6 +30,7 @@ void DodajAuto::on_Ok_clicked()
     QString przeg = ui->dataPrzegladuDateEdit->date().toString("yyyy-MM-dd");
     QString rej_osb = ui->osobSpinBox->text();
     QString pol;
+    w = new QMessageBox();
     if(!(nr_rej == "" || mar == "" || mod == ""))
     {
         pol = "CALL Dodaj_pojazd("
@@ -40,12 +41,10 @@ void DodajAuto::on_Ok_clicked()
                   "'"+przeg+"',"+rej_osb+")";
         if(!poj.prepare(pol))
         {
-            w = new QMessageBox(parentWidget());
             w->setText("Nie udało się przygotować procedury");
             w->show();
             return;
         }
-        w = new QMessageBox(parentWidget());
         w->show();
         if (poj.exec())
         {
@@ -58,7 +57,6 @@ void DodajAuto::on_Ok_clicked()
         }
     }
     else{
-        w = new QMessageBox(this);
         w->setText("Proszę uzupełnić wszystkie pola");
         w->show();
     }

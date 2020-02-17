@@ -40,7 +40,7 @@ void szukajAktywnejPromocji::on_szukajButton_clicked()
         kodProm = ui->lineEdit->text();
         if (kodProm == "")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Proszę uzupełnić numer lub odznaczyć szukanie po numerze"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Proszę uzupełnić kod lub odznaczyć szukanie po kodzie promocji"))->show();
             return;
         }
         if (filtr!="")
@@ -52,21 +52,21 @@ void szukajAktywnejPromocji::on_szukajButton_clicked()
         odDat = ui->odDateEdit->text();
         if (filtr!="")
             filtr = filtr + " AND ";
-        filtr = filtr+"Data_aktywacji >= STR_TO_DATE('"+odDat+"','yyyy-MM-dd')";
+        filtr = filtr+"Data_aktywacji >= '"+odDat+"'";
     }
     if(ui->DocheckBox->isChecked())
     {
         doDat = ui->doDateEdit->text();
         if (filtr!="")
             filtr = filtr + " AND ";
-        filtr = filtr+"Data_aktywacji <= STR_TO_DATE('"+doDat+"','yyyy-MM-dd')";
+        filtr = filtr+"Data_aktywacji <= '"+doDat+"'";
 
     }
     if((ui->odDateEdit->date()>ui->doDateEdit->date())
             && ui->odCheckBox->isChecked()
             && ui->DocheckBox->isChecked())
     {
-        new QMessageBox(QMessageBox::Icon::Warning,"","Data \"od\" jest większa od daty\"do\"");
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Data \"od\" jest większa od daty\"do\""))->show();
         return;
     }
     modelR->setFilter(filtr);

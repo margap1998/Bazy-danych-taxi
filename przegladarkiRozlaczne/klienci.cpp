@@ -4,6 +4,7 @@
 #include <Dialogi/dodajklienta.h>
 
 #include <Szukajki/szukajklienta.h>
+#include <Usuwanie/usunklienta.h>
 Klienci::Klienci(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Klienci)
@@ -48,5 +49,11 @@ void Klienci::on_DodajButton_2_clicked(){
 void Klienci::on_WyszukajButton_clicked(){
 
     auto okn = new szukajKlienta(&model,this);
+    okn->show();
+}
+
+void Klienci::on_UsunButton_clicked()
+{
+    auto okn =(new UsunKlienta(this));
     okn->show();
 }

@@ -22,6 +22,10 @@ private slots:
 
     void on_odswierz_clicked();
 
+    void on_wyjdz_clicked();
+
+    void on_usun_clicked();
+
 private:
     Ui::warsztat *ui;
     QSqlRelationalTableModel model;

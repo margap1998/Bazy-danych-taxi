@@ -42,7 +42,7 @@ void DodajUbezpieczenie::on_Ok_clicked()
     QString ubezpieczyciel = ui->ubezpieczycielLineEdit->text();
     if (ubezpieczyciel==""||koszt==""||kwota==""||nrRej==""||dataZaw==""||dataZak==""||numerUbez=="")
     {
-        new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól");
+        (new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól"))->show();
     }
     else
     {

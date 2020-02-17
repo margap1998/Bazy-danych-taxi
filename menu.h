@@ -29,7 +29,8 @@ public:
     NAPRAWY = 8,
     STAWKI = 9,
     NON= 0
-};
+    };
+    explicit Menu(QWidget *bef, QWidget *parent);
 private slots:
 
     void on_RejonyButton_clicked();
@@ -61,6 +62,7 @@ private slots:
 private:
     Ui::Menu *ui;
     QSqlDatabase db;
+    QWidget *before;
     void odpalPrzegladarke(QWidget *a = 0);
 };
 

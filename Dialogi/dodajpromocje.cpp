@@ -27,7 +27,7 @@ void DodajPromocje::on_Ok_clicked()
     QString pol = "INSERT INTO promocja(Kod, Nazwa, Kwota_znizki, Procent_znizki)"
                     " VALUES('"+kod+"','"+nazwa+"',"+kwota+","+procent+")";
     QSqlQuery q1;
-    auto w = new QMessageBox(this);
+    auto w = new QMessageBox();
     if (!(kod == "" || nazwa==""))
     {
         if(!q1.prepare(pol))

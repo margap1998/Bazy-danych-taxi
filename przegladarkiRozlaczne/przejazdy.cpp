@@ -6,6 +6,7 @@
 #include <QSqlRelationalDelegate>
 
 #include <Szukajki/szukajprzejazdu.h>
+#include <Usuwanie/usunprzejazdy.h>
 
 Przejazdy::Przejazdy(QWidget *parent) :
     QWidget(parent),
@@ -54,3 +55,9 @@ void Przejazdy::on_WyszukajButton_clicked(){
     okn->show();
 }
 
+
+void Przejazdy::on_UsunButton_clicked()
+{
+    auto okn = (new UsunPrzejazdy(this));
+    okn->show();
+}

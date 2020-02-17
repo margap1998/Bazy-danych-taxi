@@ -28,7 +28,7 @@ void szukajUlicy::on_szukajButton_clicked()
         QString rej = ui->rejonLE->text();
         if (rej == "")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij nazwę poszukiwanego rejonu lub odznacz szukanie po rejonie"))->show();
             return;
         }
         filtr="Rejon LIKE '%"+rej+"%'";
@@ -38,12 +38,7 @@ void szukajUlicy::on_szukajButton_clicked()
         QString ul = ui->ulicaLE->text();
         if (ul=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec"))->show();
-            return;
-        }
-        if (ul.length()>25)
-        {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Przekroczono dozwoloną długość nazwy ulicy"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij nazwę ulicy lub odznacz szukanie po nazwie"))->show();
             return;
         }
         if (filtr!="")

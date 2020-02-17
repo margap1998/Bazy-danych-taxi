@@ -30,7 +30,7 @@ void szukajObslugi::on_szukajButton_clicked()
         imie = ui->imieLE->text();
         if (imie=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec imienia"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij imie lub odznacz wyszukiwanie po imieniu"))->show();
             return;
         }
         pod=pod+" Imie LIKE '%"+imie+"%' ";
@@ -39,19 +39,19 @@ void szukajObslugi::on_szukajButton_clicked()
         QString nazwisko = ui->nazwiskoLE->text();
         if (nazwisko=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec nazwiska"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij nazwisko lub odznacz wyszukiwanie po imieniu"))->show();
             return;
         }
         if(ui->imieCB->isChecked()) pod =pod+" AND ";
         pod=pod+" Nazwisko LIKE '%"+nazwisko+"%' ";
     }
     pod=pod+")";
-    if(ui->imieCB->isChecked()||ui->imieCB->isChecked()) filtr ="Kierowca IN "+pod;
+    if(ui->imieCB->isChecked()||ui->nazwiskoCB->isChecked()) filtr ="Kierowca IN "+pod;
     if (ui->rejonCB->isChecked()){
         QString rej = ui->rejonLE->text();
         if (rej=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij nazwę rejonu lub odznacz szukanie po rejonie"))->show();
             return;
         }
         if (filtr!="") filtr+=" AND ";

@@ -10,16 +10,7 @@ int main(int argc, char *argv[])
        {
 
         QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-        db.setHostName("127.0.0.1");
-        db.setDatabaseName("poltaxi");
-        db.setPort(3306);
-        db.setUserName("Halinka");
-        db.setPassword("Marek1984");
-        if(db.open()){
-            w = new TaxiBAZA();
-        }else{
-            w = new QMessageBox(QMessageBox::Critical,"PROBLEM", "Nastąpił problem z bazą danych. Poproś administratora o pomoc");
-        }
+        w = new TaxiBAZA();
     }
     else{
         w = new QMessageBox(QMessageBox::Critical,"PROBLEM", "Nie ma sterownika do bazy danych. Poproś administratora o pomoc");

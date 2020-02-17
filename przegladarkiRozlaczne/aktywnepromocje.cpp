@@ -2,6 +2,8 @@
 #include "ui_aktywnepromocje.h"
 #include <QtSql>
 #include <Szukajki/szukajaktywnejpromocji.h>
+#include <Usuwanie/usunaktywnapromocje.h>
+#include "Dialogi/dodajaktywowanopromocje.h"
 aktywnePromocje::aktywnePromocje(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::aktywnePromocje)
@@ -35,7 +37,8 @@ void aktywnePromocje::on_OdswierzButton_clicked()
 
 void aktywnePromocje::on_DodajButton_2_clicked()
 {
-
+    auto w =(new dodajAktywowanoPromocje(this));
+    w->show();
 }
 
 void aktywnePromocje::on_ZatwierdzButton_2_clicked()
@@ -47,7 +50,8 @@ void aktywnePromocje::on_ZatwierdzButton_2_clicked()
 
 void aktywnePromocje::on_UsunButton_clicked()
 {
-
+    auto w =(new UsunAktywnaPromocje(this));
+    w->show();
 }
 
 void aktywnePromocje::on_WyszukajButton_clicked()

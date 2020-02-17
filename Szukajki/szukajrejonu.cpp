@@ -28,7 +28,7 @@ void szukajRejonu::on_szukajButton_clicked()
     QString rej = ui->lineEdit->text();
     if (rej=="")
     {
-        (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec"))->show();
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Wprowadź nazwę poszukiwanego rejonu"))->show();
         return;
     }
     filtr ="Nazwa LIKE '%"+rej+"%'";

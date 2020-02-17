@@ -4,14 +4,17 @@
 #include <QtSql>
 #include <Dialogi/dodajauto.h>
 #include <Szukajki/szukajkierowcy.h>
+#include <Dialogi/dodajtylkokierowce.h>
+#include <Usuwanie/usunpojazd.h>
 #include "Szukajki/szukajpojazdu.h"
+#include "Usuwanie/usunkierowce.h"
+
 kierowcyPojazdy::kierowcyPojazdy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::kierowcyPojazdy)
 {
     del =nullptr;
     schemat = "kierowcypojazdy";
-    indeks = -1;
     db = QSqlDatabase::database();
     ui->setupUi(this);
     on_OdswierzButton_clicked();
@@ -48,13 +51,7 @@ void kierowcyPojazdy::on_OdswierzButton_clicked(){
     if(schemat=="kierowcypojazdy")
     {
         ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
-        model.setRelation(0,QSqlRelation("pojazd","Numer_rejestracyjny","Numer_rejestracyjny"));
-        //model.setEditStrategy()
-    }else if (schemat == "kierowca")
-    {
-        model.setRelation(1,QSqlRelation("pojazd","Numer_rejestracyjny","Numer_rejestracyjny"));
     }
-
     model.select();
     ui->tableView->setModel(&model);
     del =new QSqlRelationalDelegate(ui->tableView);
@@ -86,6 +83,8 @@ void kierowcyPojazdy::on_pushButton_clicked()
 
 void kierowcyPojazdy::on_UsunButton_clicked()
 {
+    auto w = (new usunkierowce(this));
+    w->show();
 }
 
 
@@ -112,4 +111,16 @@ void kierowcyPojazdy::on_WyszukajPojazdButton_clicked()
 {
     auto okn = new szukajpojazdu(&model,this);
     okn->show();
+}
+
+void kierowcyPojazdy::on_pushButton_2_clicked()
+{
+    auto okn = new dodajTylkoKierowce(this);
+    okn->show();
+}
+
+void kierowcyPojazdy::on_usunPojazdButton_clicked()
+{
+    auto w =(new usunPojazd(this));
+    w->show();
 }

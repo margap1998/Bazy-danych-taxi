@@ -29,7 +29,7 @@ void szukajKierowcy::on_szukajButton_clicked()
         QString PESEL = ui->PESELLE->text();
         if (PESEL=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec PESELu"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij PESEL lub odznacz szukanie po PESELu"))->show();
             return;
         }
         filtr += "PESEL LIKE '%"+PESEL+"%'";
@@ -39,7 +39,7 @@ void szukajKierowcy::on_szukajButton_clicked()
         QString imie = ui->imieLE->text();
         if (imie=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec imienia"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij imię lub odznacz wyszukiwanie po imieniu"))->show();
             return;
         }
         if(filtr!="")filtr+=" AND ";
@@ -50,7 +50,7 @@ void szukajKierowcy::on_szukajButton_clicked()
         QString nazwisko = ui->NazwiskoLE->text();
         if (nazwisko=="")
         {
-            (new QMessageBox(QMessageBox::Icon::Warning,"","Podano pusty wzorzec nazwiska"))->show();
+            (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij nazwisko lub odznacz wyszukiwanie po nazwisku"))->show();
             return;
         }
         if(filtr!="")filtr+=" AND ";
@@ -61,18 +61,18 @@ void szukajKierowcy::on_szukajButton_clicked()
     {
         QString data = ui->odDateEdit->text();
         if(filtr!="")filtr+=" AND ";
-        filtr += "Data_zatrudnienia>=STR_TO_DATE('"+data+"','yyyy-MM-dd')";
+        filtr += "Data_zatrudnienia>='"+data+"'";
     }
     if(ui->DocheckBox->isChecked())
     {
         QString data = ui->doDateEdit->text();
         if(filtr!="")filtr+=" AND ";
-        filtr += "Data_zatrudnienia<=STR_TO_DATE('"+data+"','yyyy-MM-dd')";
+        filtr += "Data_zatrudnienia<='"+data+"'";
     }
     if((ui->odDateEdit->date() > ui->doDateEdit->date()) &&
             ui->odCheckBox->isChecked() && ui->DocheckBox->isChecked())
     {
-        (new QMessageBox(QMessageBox::Icon::Warning,"","Data \"od\" jest większa od daty \"do\""))->show();
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Data \"od\" jest większa od daty \"do\", odznacz lub popraw jedną z dat"))->show();
         return;
     }else{
         modelR->setFilter(filtr);
