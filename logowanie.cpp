@@ -41,6 +41,7 @@ void Logowanie::on_pushButton_clicked()
         db.setHostName(adr);
         db.setUserName(user);
         db.setPassword(haslo);
+        db.setDatabaseName("poltaxi");
         if(db.open())
         {
             this->hide();

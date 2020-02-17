@@ -30,6 +30,7 @@ private slots:
 
     void on_WrocButton_2_clicked();
 
+
 private:
     QWidget *before;
     Ui::aktywnePromocje *ui;

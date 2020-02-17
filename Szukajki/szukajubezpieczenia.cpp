@@ -31,7 +31,7 @@ void szukajUbezpieczenia::on_szukajButton_clicked()
             (new QMessageBox(QMessageBox::Icon::Warning,"","Uzupełnij numerze ubezpieczenia lub odznacz szukanie po numerze ubezpieczenia"))->show();
             return;
         }
-        filtr+="Numer_ubezpiecznia LIKE '%"+nrUb+"%'";
+        filtr+="Numer_ubezpieczenia LIKE '%"+nrUb+"%'";
     }
     if (ui->numerRejCB->isChecked()){
         QString nrRej = ui->numerRejLE->text();

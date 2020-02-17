@@ -66,3 +66,4 @@ void aktywnePromocje::on_WrocButton_2_clicked()
     this->hide();
     delete this;
 }
+

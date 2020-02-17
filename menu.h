@@ -61,7 +61,6 @@ private slots:
 
 private:
     Ui::Menu *ui;
-    QSqlDatabase db;
     QWidget *before;
     void odpalPrzegladarke(QWidget *a = 0);
 };

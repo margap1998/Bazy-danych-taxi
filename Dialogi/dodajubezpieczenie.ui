@@ -100,8 +100,18 @@
     </item>
     <item row="6" column="1">
      <widget class="QDateEdit" name="dataZawarciaDateEdit">
+      <property name="dateTime">
+       <datetime>
+        <hour>2</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>2018</year>
+        <month>10</month>
+        <day>15</day>
+       </datetime>
+      </property>
       <property name="displayFormat">
-       <string>yyyy-MM-dd hh:mm:ss</string>
+       <string>yyyy-MM-dd</string>
       </property>
       <property name="date">
        <date>
@@ -142,7 +152,7 @@
     <item row="7" column="1">
      <widget class="QDateEdit" name="dataZakonczeniaDateEdit">
       <property name="displayFormat">
-       <string>yyyy-MM-dd hh:mm:ss</string>
+       <string>yyyy-MM-dd</string>
       </property>
       <property name="date">
        <date>

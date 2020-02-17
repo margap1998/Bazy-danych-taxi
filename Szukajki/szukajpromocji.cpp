@@ -47,12 +47,12 @@ void szukajPromocji::on_szukajButton_clicked()
     if (ui->odKwotaCB->isChecked()){
         QString koszt = QVariant(ui->odKwotaDSB->value()).toString();
         if (filtr!="")filtr+=" AND ";
-        filtr+="Kwota >= "+koszt;
+        filtr+="Kwota_znizki >= "+koszt;
     }
     if (ui->doKwotaCB->isChecked()){
         QString koszt = QVariant(ui->doKwotaDSB->value()).toString();
         if (filtr!="")filtr+=" AND ";
-        filtr+="Kwota <= "+koszt;
+        filtr+="Kwota_znizki <= "+koszt;
     }
     if (ui->odProcentCB->isChecked()){
         QString pr = ui->odProcentZniKiSpinBox->text();

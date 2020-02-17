@@ -17,21 +17,19 @@ Menu::Menu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Menu)
 {
-    db = QSqlDatabase::database();
     ui->setupUi(this);
+    before = nullptr;
 }
 Menu::Menu(QWidget *bef,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Menu)
 {
     before =bef;
-    db = QSqlDatabase::database();
     ui->setupUi(this);
 }
 
 Menu::~Menu()
 {
-    db.close();
     delete ui;
 }
 void Menu::odpalPrzegladarke(QWidget *a)
@@ -82,11 +80,11 @@ void Menu::on_PromocjaButton_clicked()
 }
 
 void Menu::on_WylogujButton_clicked()
-{
-    db.close();
-    before->show();
-    this->hide();
-    delete this;
+{if(before!=nullptr){
+        before->show();
+        this->hide();
+        delete this;
+    }
 }
 
 void Menu::on_WylaczButton_clicked()

@@ -1,6 +1,7 @@
 #include "kierowcypojazdy.h"
 #include "ui_kierowcypojazdy.h"
 #include "../Dialogi/dodajkierowce.h"
+#include <QMessageBox>
 #include <QtSql>
 #include <Dialogi/dodajauto.h>
 #include <Szukajki/szukajkierowcy.h>
@@ -123,4 +124,13 @@ void kierowcyPojazdy::on_usunPojazdButton_clicked()
 {
     auto w =(new usunPojazd(this));
     w->show();
+}
+
+
+
+void kierowcyPojazdy::on_stareAuta_clicked()
+{
+    QSqlQuery q1;
+    q1.exec("SELECT Najstarszy()");
+    (new QMessageBox(QMessageBox::Icon::Information,"Najstarsze auta",q1.value(0).toString()))->show();
 }
