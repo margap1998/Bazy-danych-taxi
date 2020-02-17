@@ -93,12 +93,11 @@ void Menu::on_WylaczButton_clicked()
 }
 void Menu::on_RaportPrzejazdyButton_clicked()
 {
-    odpalPrzegladarke();
+    (new RaportDialog("SELECT imie, nazwisko, przejazdy(PESEL) FROM kierowca"))->show();
 }
 
 void Menu::on_RaportPlacButton_clicked()
 {
-    odpalPrzegladarke();
 }
 
 void Menu::on_pushButton_clicked()

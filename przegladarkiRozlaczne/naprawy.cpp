@@ -2,6 +2,7 @@
 #include "ui_naprawy.h"
 
 #include <Dialogi/dodajnaprawe.h>
+#include <QMessageBox>
 #include <QtSql>
 #include <warsztat.h>
 #include <Szukajki/szukajnaprawy.h>
@@ -80,4 +81,14 @@ void naprawy::on_UsunButton_clicked()
 {
     auto okn = (new UsunNaprawe(this));
     okn->show();
+}
+
+void naprawy::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

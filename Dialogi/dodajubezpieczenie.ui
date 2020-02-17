@@ -63,7 +63,7 @@
     <item row="3" column="1">
      <widget class="QDoubleSpinBox" name="kwotaDoubleSpinBox">
       <property name="maximum">
-       <double>1000000.000000000000000</double>
+       <double>999999.989999999990687</double>
       </property>
      </widget>
     </item>
@@ -77,7 +77,7 @@
     <item row="4" column="1">
      <widget class="QDoubleSpinBox" name="kosztDoubleSpinBox">
       <property name="maximum">
-       <double>100000.000000000000000</double>
+       <double>99999.990000000005239</double>
       </property>
      </widget>
     </item>

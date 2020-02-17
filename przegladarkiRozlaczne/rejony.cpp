@@ -5,6 +5,7 @@
 #include <Dialogi/dodajrejon.h>
 #include <Dialogi/dodajulice.h>
 
+#include <QMessageBox>
 #include <QSqlRelationalDelegate>
 
 #include <Usuwanie/usunrejon.h>
@@ -21,7 +22,6 @@ Rejony::Rejony(QWidget *parent) :
 {
     ui->setupUi(this);
     on_rejonySwitch_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 Rejony::~Rejony()
@@ -35,7 +35,6 @@ Rejony::Rejony(QWidget *parent, QWidget *bef) :
     before =bef;
     ui->setupUi(this);
     on_rejonySwitch_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 
@@ -47,7 +46,6 @@ void Rejony::on_WrocButton_2_clicked()
     delete this;
 }
 void Rejony::on_OdswierzButton_clicked(){
-    ui->tableView->clearSpans();
     model.setTable(aktywnaTabela);
     model.select();
     ui->tableView->setModel(&model);
@@ -130,4 +128,14 @@ void Rejony::on_UsunButton_clicked()
         auto okn=(new usunObsluge(this));
         okn->show();
     }
+}
+
+void Rejony::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

@@ -12,9 +12,9 @@ UsunNaprawe::UsunNaprawe(QWidget *parent) :
     model.setQuery("Select DISTINCT  Numer_faktury from Naprawa");
     ui->comboBox->setModel(&model);
     modelR.setQuery("Select DISTINCT Numer_rejestracyjny from Naprawa");
-    ui->nrRejCB->setModel(&model);
+    ui->nrRejCB->setModel(&modelR);
     modelW.setQuery("Select DISTINCT Nazwa from Naprawa");
-    ui->warsztat->setModel(&model);
+    ui->warsztat->setModel(&modelW);
 }
 
 UsunNaprawe::~UsunNaprawe()

@@ -76,12 +76,12 @@ void szukajPrzejazdu::on_szukajButton_clicked()
     if (ui->odDatyRozCB->isChecked()){
         QString data = ui->oddataRozpoczeciaDateTimeEdit->text();
         if(filtr!="")filtr+=" AND ";
-        filtr += "Data_zatrudnienia>=STR_TO_DATE('"+data+"','yyyy-MM-dd')";
+        filtr += "Data_rozpoczecia>='"+data+"'";
     }
     if (ui->doDatyRozCB->isChecked()) {
         QString data = ui->dodataRozpoczeciaDateTimeEdit->text();
         if(filtr!="")filtr+=" AND ";
-        filtr += "Data_zatrudnienia<=STR_TO_DATE('"+data+"','yyyy-MM-dd')";
+        filtr += "Data_rozpoczecia<='"+data+"'";
     }
     if (ui->imieKierowcyCB->isChecked()){
         QString imie;

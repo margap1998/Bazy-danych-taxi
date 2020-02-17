@@ -3,6 +3,7 @@
 
 #include <Dialogi/dodajprzejazd.h>
 
+#include <QMessageBox>
 #include <QSqlRelationalDelegate>
 
 #include <Szukajki/szukajprzejazdu.h>
@@ -29,7 +30,6 @@ Przejazdy::Przejazdy(QWidget *parent, QWidget *bef) :
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 
@@ -60,4 +60,14 @@ void Przejazdy::on_UsunButton_clicked()
 {
     auto okn = (new UsunPrzejazdy(this));
     okn->show();
+}
+
+void Przejazdy::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

@@ -2,6 +2,7 @@
 #define USUNWARSZTAT_H
 
 #include <QDialog>
+#include <QSqlQueryModel>
 
 namespace Ui {
 class usunWarsztat;
@@ -22,6 +23,7 @@ private slots:
 
 private:
     Ui::usunWarsztat *ui;
+    QSqlQueryModel model;
 };
 
 #endif // USUNWARSZTAT_H

@@ -19,6 +19,8 @@ public:
 private slots:
     void on_UsunButton_clicked();
 
+    void on_ZatwierdzButton_2_clicked();
+
 protected slots:
     void on_WrocButton_2_clicked();
     void on_OdswierzButton_clicked();

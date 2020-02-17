@@ -3,6 +3,7 @@
 
 #include <Dialogi/dodajubezpieczenie.h>
 
+#include <QMessageBox>
 #include <QSqlRelationalDelegate>
 
 #include <Szukajki/szukajubezpieczenia.h>
@@ -15,7 +16,6 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 Ubezpieczenia::~Ubezpieczenia()
@@ -30,7 +30,6 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent, QWidget *bef) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 void Ubezpieczenia::on_WrocButton_2_clicked()
@@ -42,10 +41,6 @@ void Ubezpieczenia::on_WrocButton_2_clicked()
 void Ubezpieczenia::on_OdswierzButton_clicked(){
     ui->Wszystkie->setChecked(true);
     model.setTable(obecnaTabelka);
-    if(obecnaTabelka == "ubezpieczenie")
-    {
-        model.setRelation(1,QSqlRelation({"pojazd","Numer_rejestracyjny","Numer_rejestracyjny"}));
-    }
     model.select();
     ui->tableView->setModel(&model);
 }
@@ -98,4 +93,14 @@ void Ubezpieczenia::on_UsunButton_clicked()
 {
     auto okn =(new UsunUbezpieczenie(this));
     okn->show();
+}
+
+void Ubezpieczenia::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

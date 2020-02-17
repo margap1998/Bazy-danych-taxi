@@ -2,6 +2,7 @@
 #include "ui_promocje.h"
 
 #include <Dialogi/dodajpromocje.h>
+#include <QMessageBox>
 #include <QtSql>
 #include <Szukajki/szukajpromocji.h>
 #include <Usuwanie/usunpromocje.h>
@@ -54,4 +55,14 @@ void Promocje::on_UsunButton_clicked()
 {
     auto okn = (new UsunPromocje(this));
     okn->show();
+}
+
+void Promocje::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

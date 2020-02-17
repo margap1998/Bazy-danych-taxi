@@ -25,99 +25,126 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>70</y>
-     <width>321</width>
-     <height>381</height>
+     <x>220</x>
+     <y>50</y>
+     <width>541</width>
+     <height>471</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <widget class="QPushButton" name="RejonyButton">
       <property name="text">
        <string>Rejony</string>
       </property>
      </widget>
     </item>
-    <item>
+    <item row="1" column="0">
      <widget class="QPushButton" name="KierowcyButton">
       <property name="text">
        <string>Kierowcy i pojazdy</string>
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="UbezpieczeniaButton">
-      <property name="text">
-       <string>Ubezpieczenia</string>
+    <item row="9" column="0" colspan="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="NaprawyButton">
-      <property name="text">
-       <string>Naprawy</string>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
       </property>
-     </widget>
+     </spacer>
     </item>
-    <item>
-     <widget class="QPushButton" name="PrzejazdyButton">
-      <property name="text">
-       <string>Przejazdy</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="StawkiButton">
-      <property name="text">
-       <string>Stawki</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="KlienciButton">
-      <property name="text">
-       <string>Klienci</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="PromocjaButton">
-      <property name="text">
-       <string>Promocje</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Aktywowane promocje</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>500</y>
-     <width>321</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+    <item row="10" column="0" colspan="2">
      <widget class="QPushButton" name="WylogujButton">
       <property name="text">
        <string>Wyloguj</string>
       </property>
      </widget>
     </item>
-    <item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="NaprawyButton">
+      <property name="text">
+       <string>Naprawy</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="PrzejazdyButton">
+      <property name="text">
+       <string>Przejazdy</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="StawkiButton">
+      <property name="text">
+       <string>Stawki</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="PromocjaButton">
+      <property name="text">
+       <string>Promocje</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="UbezpieczeniaButton">
+      <property name="text">
+       <string>Ubezpieczenia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="4">
+     <widget class="QPushButton" name="RaportPrzejazdyButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Raport przejazdów</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" rowspan="4">
+     <widget class="QPushButton" name="RaportPlacButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Raport płac</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Aktywowane promocje</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="KlienciButton">
+      <property name="text">
+       <string>Klienci</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0" colspan="2">
      <widget class="QPushButton" name="WylaczButton">
       <property name="text">
        <string>Wyłącz program</string>
@@ -125,32 +152,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="RaportPrzejazdyButton">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>90</y>
-     <width>581</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Raport przejazdów</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="RaportPlacButton">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>350</y>
-     <width>581</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Raport płac</string>
-   </property>
   </widget>
  </widget>
  <resources/>

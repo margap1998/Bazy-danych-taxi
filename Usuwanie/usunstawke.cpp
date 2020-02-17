@@ -24,7 +24,7 @@ void UsunStawke::on_usun_clicked()
 
     if (kod=="")
     {
-        new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól");
+        (new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól"))->show();
     }
     else
     {

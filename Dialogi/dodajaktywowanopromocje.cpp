@@ -32,13 +32,13 @@ void dodajAktywowanoPromocje::on_Ok_clicked()
     QString nrTel =ui->numerTelefonuComboBox->currentText();
     QString wyko =ui->wykorzystaniaSpinBox->text();
     QString data =ui->dataAktywacjiDateEdit->text();
-    if (kod==""||nrTel==""||wyko==""||data=="")
+    auto w = new QMessageBox();
+    if (!(kod==""||nrTel==""||wyko==""||data==""))
     {
         QSqlQuery q1;
         QString pol =
                 "INSERT INTO `PolTAXI`.`Aktywowana_Promocja` (`Kod`, `Numer_telefonu`, `Data_aktywacji`, `Wykorzystanie`, `Numer_paragonu`) VALUES "
                 "('"+kod+"', '"+nrTel+"','"+data+"',"+wyko+", '"+nrPar+"');";
-        auto w = new QMessageBox();
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");
@@ -54,6 +54,11 @@ void dodajAktywowanoPromocje::on_Ok_clicked()
             w->show();
             on_anuluj_clicked();
         }
+    }
+    else
+    {
+        w->setText("Uzupełnij puste pola");
+        w->show();
     }
 }
 

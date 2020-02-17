@@ -1,21 +1,28 @@
 #include "menu.h"
 #include "raportdialog.h"
 #include "ui_raportdialog.h"
-
-RaportDialog::RaportDialog(QWidget *parent, int mode) :
-    QDialog(parent),
-    ui(new Ui::RaportDialog)
-{
-    modeDB = mode;
-    ui->setupUi(this);
-    ui->plainTextEdit->appendPlainText("Raport");
-}
+#include <QtSql>
 
 RaportDialog::RaportDialog(QString text,QDialog *parent):
     QDialog(parent),
     ui(new Ui::RaportDialog)
 {
-    ui->plainTextEdit->appendPlainText(text);
+    ui->setupUi(this);
+    ui->plainTextEdit->setPlainText("");
+    QSqlQuery q1;
+    q1.exec(text);
+    do
+    {
+        int i=0;
+        QString linia = "";
+        while (!q1.isNull(i)) {
+            linia+=q1.value(i).toString()+" ";
+            i++;
+        }
+        ui->plainTextEdit->appendPlainText(linia);
+    }
+    while(q1.next());
+
 }
 RaportDialog::~RaportDialog()
 {

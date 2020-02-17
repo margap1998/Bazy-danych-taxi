@@ -46,7 +46,6 @@ void kierowcyPojazdy::on_WrocButton_2_clicked()
     delete this;
 }
 void kierowcyPojazdy::on_OdswierzButton_clicked(){
-    delete del;
     model.setTable(schemat);
     ui->tableView->setEditTriggers(QTableView::EditTrigger::AllEditTriggers);
     if(schemat=="kierowcypojazdy")
@@ -55,8 +54,6 @@ void kierowcyPojazdy::on_OdswierzButton_clicked(){
     }
     model.select();
     ui->tableView->setModel(&model);
-    del =new QSqlRelationalDelegate(ui->tableView);
-    ui->tableView->setItemDelegate(del);
 }
 
 void kierowcyPojazdy::on_DodajButton_2_clicked(){
@@ -72,8 +69,12 @@ void kierowcyPojazdy::on_WyszukajKierowceButton_clicked(){
 
 void kierowcyPojazdy::on_ZatwierdzButton_2_clicked()
 {
-    model.submit();
-    db.commit();
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }
 
 void kierowcyPojazdy::on_pushButton_clicked()
@@ -124,13 +125,4 @@ void kierowcyPojazdy::on_usunPojazdButton_clicked()
 {
     auto w =(new usunPojazd(this));
     w->show();
-}
-
-
-
-void kierowcyPojazdy::on_stareAuta_clicked()
-{
-    QSqlQuery q1;
-    q1.exec("SELECT Najstarszy()");
-    (new QMessageBox(QMessageBox::Icon::Information,"Najstarsze auta",q1.value(0).toString()))->show();
 }

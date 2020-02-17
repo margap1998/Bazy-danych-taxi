@@ -3,6 +3,7 @@
 
 #include <Dialogi/dodajstawke.h>
 
+#include <QMessageBox>
 #include <Szukajki/szukajkodu.h>
 #include <Usuwanie/usunstawke.h>
 Stawki::Stawki(QWidget *parent) :
@@ -55,4 +56,14 @@ void Stawki::on_UsunButton_clicked()
 {
     auto okn =(new UsunStawke(this));
     okn->show();
+}
+
+void Stawki::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }

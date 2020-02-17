@@ -1,5 +1,6 @@
 #include "aktywnepromocje.h"
 #include "ui_aktywnepromocje.h"
+#include <QMessageBox>
 #include <QtSql>
 #include <Szukajki/szukajaktywnejpromocji.h>
 #include <Usuwanie/usunaktywnapromocje.h>
@@ -20,7 +21,6 @@ aktywnePromocje::aktywnePromocje(QWidget *parent, QWidget *bef):
     before = bef;
     ui->setupUi(this);
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
 }
 
 aktywnePromocje::~aktywnePromocje()
@@ -43,9 +43,12 @@ void aktywnePromocje::on_DodajButton_2_clicked()
 
 void aktywnePromocje::on_ZatwierdzButton_2_clicked()
 {
-    QSqlDatabase db = QSqlDatabase::database();
-    db.commit();
-    model.submit();
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }
 
 void aktywnePromocje::on_UsunButton_clicked()

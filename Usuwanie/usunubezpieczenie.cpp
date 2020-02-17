@@ -24,7 +24,7 @@ void UsunUbezpieczenie::on_usun_clicked()
 
     if (numer=="")
     {
-        new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól");
+        (new QMessageBox(QMessageBox::Icon::Information,"","Nie wypełniono wymaganych pól"))->show();
     }
     else
     {

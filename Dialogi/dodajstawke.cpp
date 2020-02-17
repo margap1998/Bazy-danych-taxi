@@ -22,6 +22,12 @@ void DodajStawke::on_Ok_clicked()
     QString cena = QVariant(ui->cenaZaKilometrDoubleSpinBox->value()).toString();
     QString kod = ui->kodLineEdit->text();
     QString opis = ui->opisPlainTextEdit->toPlainText();
+    if(!kod.contains(QRegExp("[0-9]+")))
+    {
+        w->setText("Kod składa się wyłącznie z cyfr");
+        w->show();
+        return;
+    }
     if (!(kod== ""||cena==""||opis==""))
     {
         QString pol ="INSERT INTO `PolTAXI`.`Stawka` (`Kod`, `Opis`, `Cena_za_km`) VALUES('"+kod+"','"+opis+"',"+cena+")";

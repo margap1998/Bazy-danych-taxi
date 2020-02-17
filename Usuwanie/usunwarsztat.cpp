@@ -9,6 +9,8 @@ usunWarsztat::usunWarsztat(QWidget *parent) :
     ui(new Ui::usunWarsztat)
 {
     ui->setupUi(this);
+    model.setQuery("SELECT Nazwa FROM warsztat");
+    ui->comboBox->setModel(&model);
 }
 
 usunWarsztat::~usunWarsztat()

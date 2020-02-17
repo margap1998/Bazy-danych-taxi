@@ -3,6 +3,7 @@
 
 #include <Dialogi/dodajklienta.h>
 
+#include <QMessageBox>
 #include <Szukajki/szukajklienta.h>
 #include <Usuwanie/usunklienta.h>
 Klienci::Klienci(QWidget *parent) :
@@ -56,4 +57,14 @@ void Klienci::on_UsunButton_clicked()
 {
     auto okn =(new UsunKlienta(this));
     okn->show();
+}
+
+void Klienci::on_ZatwierdzButton_2_clicked()
+{
+    if(!model.submitAll())
+    {
+        (new QMessageBox(QMessageBox::Icon::Warning,"","Zmiany nie zostały wprowadzone.\nZaistniały niezgodność w typie danych lub w identyfikatorach"))->show();
+
+    }
+    model.select();
 }
