@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::modPrzejazd *ui;
-    QSqlQueryModel model;
+    QSqlQueryModel model,modelP,modelK, modelS, modelT;
 };
 
 #endif // MODPRZEJAZD_H

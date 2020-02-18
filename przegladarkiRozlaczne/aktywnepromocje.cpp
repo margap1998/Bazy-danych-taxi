@@ -69,7 +69,7 @@ void aktywnePromocje::on_WyszukajButton_clicked()
 void aktywnePromocje::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 

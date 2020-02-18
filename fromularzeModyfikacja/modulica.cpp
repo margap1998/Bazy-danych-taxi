@@ -9,6 +9,12 @@ modUlica::modUlica(QWidget *parent) :
     ui(new Ui::modUlica)
 {
     ui->setupUi(this);
+    modelU.setQuery("Select DISTINCT Nazwa from Ulica");
+    model.setQuery("Select DISTINCT Rejon from Ulica");
+    modelR.setQuery("Select Nazwa from Rejon");
+    ui->ulica->setModel(&modelU);
+    ui->rejonCBwyb->setModel(&model);
+    ui->rejonComboBox->setModel(&modelR);
 }
 
 modUlica::~modUlica()
@@ -18,19 +24,29 @@ modUlica::~modUlica()
 
 void modUlica::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 
 void modUlica::on_Ok_clicked()
 {
-    auto w = new QMessageBox();
+    QString rejwyb = ui->rejonCBwyb->currentText();
+    QString nazwawyb = ui->ulica->currentText();
+
     QString rej = ui->rejonComboBox->currentText();
     QString nazwa = ui->nazwaUlicyLineEdit->text();
-    if (!(rej=="" || nazwa == ""))
+    auto w = new QMessageBox();
+    if (!(rej=="" || nazwa == ""||rejwyb==""||nazwawyb==""))
     {
-        QString pol = "INSERT INTO ulica(Nazwa,Rejon) VALUES('"+nazwa+"', '"+rej+"')";
         QSqlQuery q1;
+        QString pol =
+                "UPDATE Ulica "
+                " SET "
+                " Nazwa = '"+nazwa+"',"
+                " Rejon = '"+rej+"'"
+                " WHERE "
+                " Rejon = '"+rejwyb+"' "
+                " AND Nazwa = '"+nazwawyb+"'";
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");
@@ -39,18 +55,22 @@ void modUlica::on_Ok_clicked()
         }
         if(!q1.exec())
         {
-            w->setText("Nieudana próba dodania ulicy");
+            w->setText("Nieudana próba modyfikacji ulicy");
             w->show();
         }
         else{
-            w->setText("Pomyślnie dodano ulicę");
+            w->setText("Pomyślnie zmodyfikowano ulicę");
             w->show();
             on_anuluj_clicked();
         }
     }
     else
     {
-        w->setText("Proszę uzupełnić wszystkie pola");
+        w->setText("Uzupełnij puste pola");
         w->show();
     }
+
+
 }
+
+

@@ -22,9 +22,8 @@ modKierowca::~modKierowca()
 
 void modKierowca::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }
 
 void modKierowca::on_Ok_clicked()

@@ -72,6 +72,6 @@ void DodajUbezpieczenie::on_Ok_clicked()
 
 void DodajUbezpieczenie::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

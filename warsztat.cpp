@@ -35,7 +35,7 @@ void warsztat::on_odswierz_clicked()
 
 void warsztat::on_wyjdz_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

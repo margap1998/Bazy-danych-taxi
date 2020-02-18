@@ -20,14 +20,10 @@ private slots:
 
     void on_anuluj_clicked();
 
-    void on_kodPromocjiwyb_currentTextChanged(const QString &arg1);
-
-    void on_numerCBwybor_activated(const QString &arg1);
-
 private:
     Ui::modAktywowanaPromocja *ui;
     QSqlQueryModel model,modelK,modelR;
-    QSqlQueryModel umodelK,umodelT;
+    QSqlQueryModel umodelK,umodelT,umodelP;
     void zmiana_stanu();
 };
 

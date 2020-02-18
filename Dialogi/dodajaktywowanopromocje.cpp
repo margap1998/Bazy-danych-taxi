@@ -65,6 +65,6 @@ void dodajAktywowanoPromocje::on_Ok_clicked()
 
 void dodajAktywowanoPromocje::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

@@ -64,7 +64,7 @@ void DodajNaprawe::on_Ok_clicked()
 
 void DodajNaprawe::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

@@ -55,8 +55,6 @@ private slots:
 
     void on_RaportPrzejazdyButton_clicked();
 
-    void on_RaportPlacButton_clicked();
-
     void on_pushButton_clicked();
 
 private:

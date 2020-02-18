@@ -36,7 +36,7 @@ Stawki::Stawki(QWidget *parent, QWidget *bef) :
 void Stawki::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Stawki::on_OdswierzButton_clicked(){

@@ -17,7 +17,7 @@ szukajKierowcy::~szukajKierowcy()
 }
 void szukajKierowcy::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

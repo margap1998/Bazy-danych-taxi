@@ -55,6 +55,6 @@ void usunObsluge::on_usun_clicked()
 
 void usunObsluge::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

@@ -17,7 +17,7 @@ szukajObslugi::~szukajObslugi()
 }
 void szukajObslugi::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

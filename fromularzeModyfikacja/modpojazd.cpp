@@ -40,7 +40,7 @@ void modPojazd::on_Ok_clicked()
                   " Model = '"+mod+"',"
                   " Rocznik = "+rocznik+","
                   " Koniec_przegladu = '"+przeg+"',"
-                  " Osob = "+rej_osb+" WHERE Numer_rejestracyjny = "+nrWyb;
+                  " Osob = "+rej_osb+" WHERE Numer_rejestracyjny = '"+nrWyb+"'";
         if(!poj.prepare(pol))
         {
             w->setText("Nie udało się przygotować procedury");
@@ -65,7 +65,6 @@ void modPojazd::on_Ok_clicked()
 
 void modPojazd::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }

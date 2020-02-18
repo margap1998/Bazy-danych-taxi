@@ -53,6 +53,6 @@ void UsunStawke::on_usun_clicked()
 
 void UsunStawke::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

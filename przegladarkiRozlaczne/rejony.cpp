@@ -48,7 +48,7 @@ Rejony::Rejony(QWidget *parent, QWidget *bef) :
 void Rejony::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Rejony::on_OdswierzButton_clicked(){

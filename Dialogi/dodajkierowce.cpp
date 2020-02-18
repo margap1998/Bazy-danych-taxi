@@ -81,6 +81,6 @@ void DodajKierowce::on_Ok_clicked()
 
 void DodajKierowce::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

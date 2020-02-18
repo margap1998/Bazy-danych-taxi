@@ -20,7 +20,7 @@ modPromocja::~modPromocja()
 
 void modPromocja::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

@@ -53,6 +53,6 @@ void UsunKlienta::on_usun_clicked()
 
 void UsunKlienta::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

@@ -10,7 +10,6 @@ modNaprawa::modNaprawa(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->setupUi(this);
     model.setQuery("Select DISTINCT  Numer_faktury from Naprawa");
     ui->nrFakCBwybor->setModel(&model);
     modelR.setQuery("Select DISTINCT Numer_rejestracyjny from Naprawa");
@@ -30,8 +29,7 @@ modNaprawa::~modNaprawa()
 
 void modNaprawa::on_anuluj_clicked()
 {
-
-    this->hide();
+    this->close();
     delete this;
 }
 
@@ -56,8 +54,8 @@ void modNaprawa::on_Ok_clicked()
                  " Opis = '"+opis+"',"
                  " Koszt = "+koszt+" "
                  " WHERE "
-                 " Numer_faktury = '"+fakturaWyb+"',"
-                 " Numer_rejestracyjny = '"+nrRejWyb+"',"
+                 " Numer_faktury = '"+fakturaWyb+"' AND"
+                 " Numer_rejestracyjny = '"+nrRejWyb+"' AND"
                  " Nazwa = '"+warsztatWyb+"'";
     QSqlQuery q1;
     if (!(nrF == "" || data==""||warsztat==""||nrRej==""||opis==""||koszt==""|| fakturaWyb=="" ||nrRejWyb=="" || warsztatWyb==""))

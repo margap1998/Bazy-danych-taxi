@@ -9,17 +9,16 @@ modAktywowanaPromocja::modAktywowanaPromocja(QWidget *parent) :
     ui(new Ui::modAktywowanaPromocja)
 {
     ui->setupUi(this);
-    ui->setupUi(this);
     modelK.setQuery("Select DISTINCT Kod from Aktywowana_promocja");
     modelR.setQuery("Select DISTINCT Numer_telefonu from Aktywowana_promocja");
     umodelK.setQuery("SELECT kod FROM promocja");
     umodelT.setQuery("SELECT Numer_telefonu FROM klient");
+    umodelP.setQuery("SELECT Numer_paragonu FROM przejazd");
     ui->numerTelefonuComboBox->setModel(&umodelT);
     ui->kodComboBox->setModel(&umodelK);
     ui->numerCBwybor->setModel(&modelR);
-    ui->numerCBwybor->setCurrentText("");
     ui->kodPromocjiwyb->setModel(&modelK);
-    ui->kodPromocjiwyb->setCurrentText("");
+    ui->nrParagonuComboBox->setModel(&umodelP);
 }
 
 modAktywowanaPromocja::~modAktywowanaPromocja()
@@ -42,25 +41,23 @@ void modAktywowanaPromocja::on_Ok_clicked()
     {
         QSqlQuery q1;
         QString pol =
-                "UPDATE `Aktywowana_Promocja` "
+                "UPDATE Aktywowana_Promocja "
                 " SET "
-                " `Kod` = '"+kod+"'"+
-                ", `Numer_telefonu`= '"+nrTel+"'"+
-                ", `Data_aktywacji`= '"+data+"'"
-                ", `Wykorzystanie`= "+wyko+
-                ", `Numer_paragonu`= '"+nrPar+"' "
+                " Kod = '"+kod+"'"+
+                ", Numer_telefonu= '"+nrTel+"'"+
+                ", Data_aktywacji= '"+data+"'"
+                ", Wykorzystanie= "+wyko+""
+                ", Numer_paragonu= '"+nrPar+"' "
                 " WHERE "
-                " `Kod` = '"+kodWyb+"'"+
-                ", `Numer_telefonu`= '"+telWyb+"'";
+                " Kod = '"+kodWyb+"'"+
+                "AND Numer_telefonu= '"+telWyb+"'";
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");
-            w->show();
         }else{
             if(!q1.exec())
             {
                 w->setText("Nieudana próba modyfikacji aktywowanej promocji");
-                w->show();
             }
             else{
                 w->setText("Pomyślnie zmodyfikowano aktywowaną promocję");
@@ -72,28 +69,12 @@ void modAktywowanaPromocja::on_Ok_clicked()
     else
     {
         w->setText("Uzupełnij puste pola");
-        w->show();
     }
+    w->show();
 }
 
 void modAktywowanaPromocja::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
-}
-
-
-void modAktywowanaPromocja::on_kodPromocjiwyb_currentTextChanged(const QString &arg1)
-{
-    modelK.setQuery("Select DISTINCT Kod from Aktywowana_promocja");
-    modelR.setQuery("Select Numer_telefonu from Aktywowana_promocja WHERE kod="+arg1);
-
-}
-
-void modAktywowanaPromocja::on_numerCBwybor_activated(const QString &arg1)
-{
-    modelK.setQuery("Select Kod from Aktywowana_promocja WHERE Numer_telefonu="+arg1);
-    modelR.setQuery("Select DISTINCT Numer_telefonu from Aktywowana_promocja");
-
 }

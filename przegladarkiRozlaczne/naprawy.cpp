@@ -21,7 +21,7 @@ naprawy::naprawy(QWidget *parent) :
 void naprawy::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 

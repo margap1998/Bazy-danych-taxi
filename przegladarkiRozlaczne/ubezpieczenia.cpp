@@ -39,7 +39,7 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent, QWidget *bef) :
 void Ubezpieczenia::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Ubezpieczenia::on_OdswierzButton_clicked(){

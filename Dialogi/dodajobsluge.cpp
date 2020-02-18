@@ -56,6 +56,6 @@ void DodajObsluge::on_Ok_clicked()
 
 void DodajObsluge::on_anuluj_clicked()
 {
-    this->show();
+    this->close();
     delete this;
 }

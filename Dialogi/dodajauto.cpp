@@ -65,7 +65,6 @@ void DodajAuto::on_Ok_clicked()
 
 void DodajAuto::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }

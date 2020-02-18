@@ -17,7 +17,7 @@ szukajRejonu::~szukajRejonu()
 }
 void szukajRejonu::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

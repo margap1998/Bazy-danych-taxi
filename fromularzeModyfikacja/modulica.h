@@ -20,10 +20,9 @@ private slots:
     void on_anuluj_clicked();
 
     void on_Ok_clicked();
-
 private:
     Ui::modUlica *ui;
-    QSqlQueryModel modelR,modelU;
+    QSqlQueryModel model,modelR,modelU;
 };
 
 #endif // MODULICA_H

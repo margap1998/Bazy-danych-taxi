@@ -16,7 +16,7 @@ szukajNaprawy::~szukajNaprawy()
 }
 void szukajNaprawy::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

@@ -17,7 +17,7 @@ szukajPrzejazdu::~szukajPrzejazdu()
 }
 void szukajPrzejazdu::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

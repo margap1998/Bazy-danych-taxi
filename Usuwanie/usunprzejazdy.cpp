@@ -53,6 +53,6 @@ void UsunPrzejazdy::on_usun_clicked()
 
 void UsunPrzejazdy::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

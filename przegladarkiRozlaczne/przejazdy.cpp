@@ -39,7 +39,7 @@ Przejazdy::Przejazdy(QWidget *parent, QWidget *bef) :
 void Przejazdy::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Przejazdy::on_OdswierzButton_clicked(){

@@ -62,6 +62,6 @@ void usunUlice::on_rejon_currentTextChanged(const QString &arg1)
 
 void usunUlice::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

@@ -50,6 +50,6 @@ void DodajRejon::on_Ok_clicked()
 }
 void DodajRejon::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

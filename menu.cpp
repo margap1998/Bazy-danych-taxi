@@ -82,7 +82,7 @@ void Menu::on_PromocjaButton_clicked()
 void Menu::on_WylogujButton_clicked()
 {if(before!=nullptr){
         before->show();
-        this->hide();
+        this->close();
         delete this;
     }
 }
@@ -96,9 +96,6 @@ void Menu::on_RaportPrzejazdyButton_clicked()
     (new RaportDialog("SELECT imie, nazwisko, przejazdy(PESEL) FROM kierowca"))->show();
 }
 
-void Menu::on_RaportPlacButton_clicked()
-{
-}
 
 void Menu::on_pushButton_clicked()
 {

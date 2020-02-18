@@ -9,6 +9,9 @@ modStawka::modStawka(QWidget *parent) :
     ui(new Ui::modStawka)
 {
     ui->setupUi(this);
+    model.setQuery("Select DISTINCT Kod from Stawka");
+    ui->kodStawkiwyb->setModel(&model);
+    ui->kodStawkiwyb->setCurrentText("");
 }
 
 modStawka::~modStawka()
@@ -18,47 +21,50 @@ modStawka::~modStawka()
 
 void modStawka::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }
 
 void modStawka::on_Ok_clicked()
 {
-    auto w = new QMessageBox();
-    QString cena = QVariant(ui->cenaZaKilometrDoubleSpinBox->value()).toString();
+    QString kodwyb = ui->kodStawkiwyb->currentText();
+
     QString kod = ui->kodLineEdit->text();
     QString opis = ui->opisPlainTextEdit->toPlainText();
-    if(!kod.contains(QRegExp("[0-9]+")))
+    QString cena = QVariant(ui->cenaZaKilometrDoubleSpinBox->value()).toString();
+
+    auto w = new QMessageBox();
+    if (!(kod==""||opis==""||cena==""))
     {
-        w->setText("Kod składa się wyłącznie z cyfr");
-        w->show();
-        return;
-    }
-    if (!(kod== ""||cena==""||opis==""))
-    {
-        QString pol ="INSERT INTO `PolTAXI`.`Stawka` (`Kod`, `Opis`, `Cena_za_km`) VALUES('"+kod+"','"+opis+"',"+cena+")";
         QSqlQuery q1;
+        QString pol =
+                "UPDATE `PolTAXI`.`Stawka` "
+                " SET "
+                " `Kod` = '"+kod+"',"
+                " `Opis` = '"+opis+"',"
+                " `Cena_za_km` = "+cena+""
+
+                " WHERE "
+                " `Kod` = '"+kodwyb+"'";
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");
             w->show();
-            return;
         }
         if(!q1.exec())
         {
-            w->setText("Nieudana próba dodania stawki");
+            w->setText("Nieudana próba modyfikacji stawki");
             w->show();
         }
         else{
-            w->setText("Pomyślnie dodano stawkę");
+            w->setText("Pomyślnie zmodyfikowano stawkę");
             w->show();
             on_anuluj_clicked();
         }
     }
     else
     {
-        w->setText("Proszę uzupełnić wszystkie pola");
+        w->setText("Uzupełnij puste pola");
         w->show();
     }
 }

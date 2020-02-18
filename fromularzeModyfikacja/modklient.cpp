@@ -20,9 +20,8 @@ modKlient::~modKlient()
 
 void modKlient::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }
 
 void modKlient::on_Ok_clicked()

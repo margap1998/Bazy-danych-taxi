@@ -32,6 +32,6 @@ RaportDialog::~RaportDialog()
 
 void RaportDialog::on_Wyjdz_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

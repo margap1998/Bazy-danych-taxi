@@ -20,7 +20,7 @@ usunWarsztat::~usunWarsztat()
 
 void usunWarsztat::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

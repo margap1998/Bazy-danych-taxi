@@ -19,8 +19,8 @@ modObsluga::modObsluga(QWidget *parent) :
 
     umodelK.setQuery("SELECT PESEL FROM kierowca");
     umodelR.setQuery("SELECT Nazwa FROM rejon");
-    ui->rejonComboBox->setModel(&modelR);
-    ui->kierowcaComboBox->setModel(&modelK);
+    ui->rejonComboBox->setModel(&umodelR);
+    ui->kierowcaComboBox->setModel(&umodelK);
 }
 
 modObsluga::~modObsluga()
@@ -30,9 +30,8 @@ modObsluga::~modObsluga()
 
 void modObsluga::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
-
 }
 
 void modObsluga::on_Ok_clicked()
@@ -43,10 +42,10 @@ void modObsluga::on_Ok_clicked()
     auto w = new QMessageBox();
     QString rej = ui->rejonComboBox->currentText();
     QString pes = ui->kierowcaComboBox->currentText();
-    QString pol = "UPDATE obsluga SET"
+    QString pol = "UPDATE obsluga SET "
                   " Kierowca = '"+pes+"', "
                   " Rejon = '"+rej+"'"
-                  " WHERE Kierowca = '"+kierWyb+"', "
+                  " WHERE Kierowca = '"+kierWyb+"' AND "
                   " Rejon='"+rejWyb+"'";
     if (!(rej == "" || pes=="" ||rejWyb==""||kierWyb==""))
     {

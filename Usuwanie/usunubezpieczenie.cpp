@@ -53,6 +53,6 @@ void UsunUbezpieczenie::on_usun_clicked()
 
 void UsunUbezpieczenie::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

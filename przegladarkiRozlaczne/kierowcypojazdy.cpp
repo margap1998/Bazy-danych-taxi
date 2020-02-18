@@ -45,7 +45,7 @@ kierowcyPojazdy::~kierowcyPojazdy()
 void kierowcyPojazdy::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void kierowcyPojazdy::on_OdswierzButton_clicked(){
@@ -127,10 +127,10 @@ void kierowcyPojazdy::on_usunPojazdButton_clicked()
 
 void kierowcyPojazdy::on_ModyfikujPojazd_clicked()
 {
-    (new modKierowca())->show();
+    (new modPojazd())->show();
 }
 
 void kierowcyPojazdy::on_ModyfikujKierowce_clicked()
 {
-    (new modPojazd())->show();
+    (new modKierowca())->show();
 }

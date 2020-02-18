@@ -18,7 +18,7 @@ szukajKodu::~szukajKodu()
 
 void szukajKodu::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

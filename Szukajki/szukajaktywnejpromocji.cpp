@@ -16,7 +16,7 @@ szukajAktywnejPromocji::~szukajAktywnejPromocji()
 
 void szukajAktywnejPromocji::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

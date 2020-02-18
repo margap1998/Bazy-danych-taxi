@@ -53,6 +53,6 @@ void UsunPromocje::on_usun_clicked()
 
 void UsunPromocje::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

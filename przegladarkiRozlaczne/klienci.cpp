@@ -36,7 +36,7 @@ Klienci::Klienci(QWidget *parent, QWidget *bef) :
 void Klienci::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Klienci::on_OdswierzButton_clicked(){

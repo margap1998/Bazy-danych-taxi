@@ -59,6 +59,6 @@ void DodajStawke::on_Ok_clicked()
 
 void DodajStawke::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

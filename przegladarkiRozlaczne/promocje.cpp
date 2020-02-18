@@ -36,7 +36,7 @@ Promocje::~Promocje()
 void Promocje::on_WrocButton_2_clicked()
 {
     before->show();
-    this->hide();
+    this->close();
     delete this;
 }
 void Promocje::on_OdswierzButton_clicked(){

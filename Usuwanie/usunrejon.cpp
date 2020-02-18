@@ -53,7 +53,7 @@ void usunrejon::on_usun_clicked()
 
 void usunrejon::on_wroc_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 

@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::modUbezpieczenie *ui;
-    QSqlQueryModel model;
+    QSqlQueryModel model, modelR;
 };
 
 #endif // MODUBEZPIECZENIE_H

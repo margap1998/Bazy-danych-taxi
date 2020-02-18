@@ -21,6 +21,7 @@ private slots:
 
     void on_Ok_clicked();
 
+
 private:
     Ui::modStawka *ui;
     QSqlQueryModel model;

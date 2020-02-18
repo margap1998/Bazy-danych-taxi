@@ -65,6 +65,6 @@ void DodajPrzejazd::on_Ok_clicked()
 
 void DodajPrzejazd::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

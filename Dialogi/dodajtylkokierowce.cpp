@@ -53,6 +53,6 @@ void dodajTylkoKierowce::on_Ok_clicked()
 
 void dodajTylkoKierowce::on_anuluj_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }

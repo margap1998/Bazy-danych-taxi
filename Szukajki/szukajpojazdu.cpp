@@ -16,7 +16,7 @@ szukajpojazdu::~szukajpojazdu()
 }
 void szukajpojazdu::on_wrocButton_clicked()
 {
-    this->hide();
+    this->close();
     delete this;
 }
 
