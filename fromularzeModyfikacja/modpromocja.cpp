@@ -40,6 +40,8 @@ void modPromocja::on_Ok_clicked()
                   " WHERE Kod = '"+kodWyb+"'";
     QSqlQuery q1;
     auto w = new QMessageBox();
+    if(kod.length()>10){w->setText("Kod promocji ma do 10 znaków.");w->show();return;}
+    if(nazwa.length()>45){w->setText("Nazwa promocji ma do 45 znaków.");w->show();return;}
     if (!(kod == "" || nazwa==""))
     {
         if(!q1.prepare(pol))

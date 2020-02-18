@@ -31,6 +31,8 @@ void DodajNaprawe::on_Ok_clicked()
     QString nrRej = ui->numerRejestracyjnyBox->currentText();
     QString opis = ui->opisTextEdit->toPlainText();
     QString koszt = QVariant(ui->kosztDoubleSpinBox->value()).toString();
+    if (nrF.length()>20){w->setText("Numer faktury ma do 20 znaków"); w->show();return;}
+    if (opis.length()>20){w->setText("Opis ma do 160 znaków"); w->show();return;}
     QString pol= "INSERT INTO naprawa(Numer_faktury,Data,Nazwa,Numer_rejestracyjny,Opis,Koszt) "
                     "VALUES('"+nrF+"',";
     pol.append("'"+data+"','"+warsztat+"',");

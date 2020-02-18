@@ -18,6 +18,7 @@ void DodajKierowce::on_Ok_clicked()
 {
     QSqlQuery poj,kier;
     QMessageBox *w;
+    w = new QMessageBox();
     QString p1, p2;
 
     QString nr_rej = ui->NumRLE->text();
@@ -26,6 +27,12 @@ void DodajKierowce::on_Ok_clicked()
     QString rocznik = ui->rocznikSpinBox->text();
     QString przeg = ui->dataPrzegladuDateEdit->date().toString("yyyy-MM-dd");
     QString rej_osb = ui->osobSpinBox->text();
+
+    if (nr_rej.length()>10){w->setText("Numer rejestracyjny ma do 10 znaków."); w->show();return;}
+    if (mar.length()>15){w->setText("Marka ma do 15 znaków."); w->show();return;}
+    if (mod.length()>45){w->setText("Model ma do 45 znaków."); w->show();return;}
+    if (rocznik.length()>4){w->setText("Rocznik ma do 4 cyfr."); w->show();return;}
+    if (rej_osb.length()>1){w->setText("Liczba osób w rejestracji ma 1 cyfrę."); w->show();return;}
 
     p1 = "CALL Dodaj_pojazd("
               "'"+nr_rej+"',"
@@ -39,8 +46,12 @@ void DodajKierowce::on_Ok_clicked()
     QString im = ui->imieLE->text();
     QString nazwisko = ui->NazwiskoLE->text();
     QString zatr = ui->dataZatrudnieniaDataEdit->date().toString("yyyy-MM-dd");
+
+    if(pes.length()!=11){w->setText("PESEL ma równo 11 znaków."); w->show();return;}
+    if(im.length()>20){w->setText("Imię ma do 20 znaków."); w->show();return;}
+    if(nazwisko.length()>45){w->setText("Nazwisko ma do 45 znaków."); w->show();return;}
+
     p2 = "CALL Dodaj_kierowce('"+pes+"','"+nr_rej+"','"+im+"','"+nazwisko+"','"+zatr+"')";
-    w = new QMessageBox();
     if(!(poj.prepare(p1)&& kier.prepare(p2)))
     {
         w->setText("Problem z przetworzenie danych");

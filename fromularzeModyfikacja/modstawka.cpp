@@ -34,6 +34,8 @@ void modStawka::on_Ok_clicked()
     QString cena = QVariant(ui->cenaZaKilometrDoubleSpinBox->value()).toString();
 
     auto w = new QMessageBox();
+    if(kod.length()>3){w->setText("Kod stawki jest liczbą do 3 cyfr.");w->show();return;}
+    if(opis.length()>100){w->setText("Opis ma mieć do 100 znaków.");w->show();return;}
     if (!(kod==""||opis==""||cena==""))
     {
         QSqlQuery q1;

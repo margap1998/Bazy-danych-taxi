@@ -32,6 +32,7 @@ void modPrzejazd::on_anuluj_clicked()
 
 void modPrzejazd::on_Ok_clicked()
 {
+    auto w = new QMessageBox();
     QString nrwyb = ui->nrPCBwyb->currentText();
 
     QString nrParagonu = ui->numerParagonuLineEdit->text();
@@ -44,7 +45,12 @@ void modPrzejazd::on_Ok_clicked()
     QString datarozp = ui->dataRozpoczeciaDateTimeEdit->text();
     QString datakon = ui->dataZakonczeniaDateTimeEdit->text();
     QString cena = QVariant(ui->cenaDoubleSpinBox->value()).toString();
-    auto w = new QMessageBox();
+    if(nrParagonu.length()>25){w->setText("Numer paragonu ma do 25 znaków.");w->show();return;}
+
+    if(pktpocz.length()>45){w->setText("Punkt początkowy ma do 45 znaków.");w->show();return;}
+    if(pktkonc.length()>45){w->setText("Punkt końcowy ma do 45 znaków.");w->show();return;}
+    if(ui->dataRozpoczeciaDateTimeEdit->dateTime()>ui->dataZakonczeniaDateTimeEdit->dateTime())
+        {w->setText("Data zakończenia nie może wypaść przed datą rozpoczęcia.");w->show();return;}
     if (!(nrParagonu==""||nrTel==""||PESEL==""||stawka==""||dlugosc==""||pktpocz==""||pktkonc==""||datarozp==""||datakon==""||cena==""))
     {
         QSqlQuery q1;

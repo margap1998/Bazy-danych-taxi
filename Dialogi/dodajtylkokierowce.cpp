@@ -21,17 +21,22 @@ dodajTylkoKierowce::~dodajTylkoKierowce()
 void dodajTylkoKierowce::on_Ok_clicked()
 {
     QSqlQuery kier;
+    auto w = new QMessageBox();
     QString pes = ui->PESELLE->text();
     QString im = ui->imieLE->text();
     QString nazwisko = ui->NazwiskoLE->text();
     QString zatr = ui->dataZatrudnieniaDataEdit->date().toString("yyyy-MM-dd");
     QString nr_rej = ui->numerRejestracyjnyBox->currentText();
+
+    if(pes.length()!=11){w->setText("PESEL ma równo 11 znaków."); w->show();return;}
+    if(im.length()>20){w->setText("Imię ma do 20 znaków."); w->show();return;}
+    if(nazwisko.length()>45){w->setText("Nazwisko ma do 45 znaków."); w->show();return;}
+
     QString p2 = "CALL Dodaj_kierowce('"+pes+"','"+nr_rej+"','"+im+"','"+nazwisko+"','"+zatr+"')";
     if (kier.prepare(p2))
     {
         if(!(nr_rej == "" ||pes == ""||im == ""|| nazwisko==""))
         {
-            auto w = new QMessageBox();
             if (kier.exec())
             {
                 w->setText("Dodanie kierowcy powiodło się");

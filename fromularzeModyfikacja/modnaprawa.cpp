@@ -46,6 +46,8 @@ void modNaprawa::on_Ok_clicked()
     QString nrRej = ui->numerRejestracyjnyBox->currentText();
     QString opis = ui->opisTextEdit->toPlainText();
     QString koszt = QVariant(ui->kosztDoubleSpinBox->value()).toString();
+    if (nrF.length()>20){w->setText("Numer faktury ma do 20 znaków"); w->show();return;}
+    if (opis.length()>20){w->setText("Opis ma do 160 znaków"); w->show();return;}
     QString pol= "UPDATE naprawa SET "
                  " Numer_faktury = '"+nrF+"',"
                  " Data = '"+data+"',"

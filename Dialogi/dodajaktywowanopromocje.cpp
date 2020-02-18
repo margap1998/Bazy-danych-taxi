@@ -33,6 +33,10 @@ void dodajAktywowanoPromocje::on_Ok_clicked()
     QString wyko =ui->wykorzystaniaSpinBox->text();
     QString data =ui->dataAktywacjiDateEdit->text();
     auto w = new QMessageBox();
+    if (kod.length()>10){w->setText("Kod promocji ma do 10 znaków."); w->show();return;}
+    if (nrPar.length()>25){w->setText("Numer paragonu ma do 25 znaków."); w->show();return;}
+    if (nrTel.length()>25){w->setText("Numer telefonu ma do 15 znaków."); w->show();return;}
+    if (wyko.length()>1){w->setText("Liczba wykorzystań ma 1 cyfrę."); w->show();return;}
     if (!(kod==""||nrTel==""||wyko==""||data==""))
     {
         QSqlQuery q1;

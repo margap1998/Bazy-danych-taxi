@@ -28,6 +28,7 @@ void modKierowca::on_anuluj_clicked()
 
 void modKierowca::on_Ok_clicked()
 {
+    auto w = new QMessageBox();
     QSqlQuery kier;
     QString kierWyb = ui->peselCwyb->currentText();
     QString pes = ui->PESELLE->text();
@@ -35,6 +36,10 @@ void modKierowca::on_Ok_clicked()
     QString nazwisko = ui->NazwiskoLE->text();
     QString zatr = ui->dataZatrudnieniaDataEdit->date().toString("yyyy-MM-dd");
     QString nr_rej = ui->numerRejestracyjnyBox->currentText();
+    if(pes.length()!=11){w->setText("PESEL ma równo 11 znaków."); w->show();return;}
+    if(im.length()>20){w->setText("Imię ma do 20 znaków."); w->show();return;}
+    if(nazwisko.length()>45){w->setText("Nazwisko ma do 45 znaków."); w->show();return;}
+
     QString p2 = "UPDATE kierowca SET "
                  " PESEL ='"+pes+"',"
                  " Numer_rejestracyjny = '"+nr_rej+"', "
@@ -46,7 +51,6 @@ void modKierowca::on_Ok_clicked()
     {
         if (kier.prepare(p2))
         {
-            auto w = new QMessageBox();
             if (kier.exec())
             {
                 w->setText("Pomyślnie zmodyfikowano dane o kierowcy");

@@ -48,6 +48,12 @@ void modUbezpieczenie::on_Ok_clicked()
     QString dataZaw = ui->dataZawarciaDateEdit->text();
     QString dataZak = ui->dataZakonczeniaDateEdit->text();
     QString ubezpieczyciel = ui->ubezpieczycielLineEdit->text();
+    if(ui->dataZawarciaDateEdit->date()>ui->dataZakonczeniaDateEdit->date())
+        {(new QMessageBox(QMessageBox::Icon::Information,"","Umowa nie może się zakończyć przed zawarciem."))->show();return;}
+    if(dodatki.length()>160){
+        (new QMessageBox(QMessageBox::Icon::Information,"","Opis dodatkowych opcji nie może przekraczać 160 znaków"))->show();return;}
+    if(ubezpieczyciel.length()>45){
+        (new QMessageBox(QMessageBox::Icon::Information,"","Ubezpieczyciel ma mieć do 45 znaków."))->show();return;}
 
     auto w = new QMessageBox();
     if (!(ubezpieczyciel==""||koszt==""||kwota==""||nrRej==""||dataZaw==""||dataZak==""||numerub==""))

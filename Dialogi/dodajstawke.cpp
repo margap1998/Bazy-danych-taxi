@@ -22,6 +22,8 @@ void DodajStawke::on_Ok_clicked()
     QString cena = QVariant(ui->cenaZaKilometrDoubleSpinBox->value()).toString();
     QString kod = ui->kodLineEdit->text();
     QString opis = ui->opisPlainTextEdit->toPlainText();
+    if(kod.length()>3){w->setText("Kod stawki jest liczbą do 3 cyfr.");w->show();return;}
+    if(opis.length()>100){w->setText("Opis ma mieć do 100 znaków.");w->show();return;}
     if(!kod.contains(QRegExp("[0-9]+")))
     {
         w->setText("Kod składa się wyłącznie z cyfr");

@@ -24,6 +24,7 @@ DodajPrzejazd::~DodajPrzejazd()
 
 void DodajPrzejazd::on_Ok_clicked()
 {
+    auto w = new QMessageBox();
     QString kierowca = ui->kierowcaBox->currentText();
     QString stawka = ui->stawkaComboBox->currentText();
     QString nrPar = ui->numerParagonuLineEdit->text();
@@ -38,12 +39,17 @@ void DodajPrzejazd::on_Ok_clicked()
         "(`Numer_paragonu`, `PESEL`, `Numer_telefonu`, `Stawka_Kod`, `Data_rozpoczecia`, `Dlugosc_trasy`, `Punkt_poczatkowy`, `Punk_koncowy`, `Czas_przejazdu`, `Cena`)"
         " VALUES ('"+nrPar+"','"+kierowca+"','"+nrTel+"', '"+stawka+"', '"+dataRoz+"', "+dlTrasy+", '"+pktPoc+"', '"+pktKon+"',"
             "SEC_TO_TIME(TIMESTAMPDIFF(SECOND,'"+dataRoz+"','"+dataZak+"')),"+z+")";
+    if(dataRoz.length()>45){w->setText("Punkt początkowy ma do 45 znaków.");w->show();return;}
+    if(dataZak.length()>45){w->setText("Punkt końcowy ma do 45 znaków.");w->show();return;}
+    if(ui->dataRozpoczeciaDateTimeEdit->dateTime()>ui->dataZakonczeniaDateTimeEdit->dateTime())
+        {w->setText("Data zakończenia nie może wypaść przed datą rozpoczęcia.");w->show();return;}
     if(kierowca==""||stawka==""||nrPar==""||nrTel==""||pktKon==""||pktPoc==""||dlTrasy==""||dataRoz==""||dataZak==""||z=="")
     {
-        new QMessageBox(QMessageBox::Icon::Information,"","Proszę uzupełnić wszystkie pola");
+        w->setText("Proszę uzupełnić wszystkie pola");
+        w->show();
+        return;
     }else{
         QSqlQuery q1;
-        auto w = new QMessageBox();
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");

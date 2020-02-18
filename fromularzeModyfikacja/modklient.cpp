@@ -34,6 +34,12 @@ void modKlient::on_Ok_clicked()
     QString nazwisko = ui->nazwiskoLineEdit->text();
     auto w = new QMessageBox();
 
+    if(nr.length()>15){w->setText("Numer telefonu ma do 15 znaków.");w->show();return;}
+    if(email.length()>45){w->setText("e-mail ma do 45 znaków.");w->show();return;}
+    if(imie.length()>20){w->setText("Imię ma do 20 znaków.");w->show();return;}
+    if(nazwisko.length()>30){w->setText("Nazwisko klienta ma do 30 znaków.");w->show();return;}
+
+
     QSqlQuery q1;
     if (!(nr == "" || email==""||data==""||nrWyb==""))
     {

@@ -31,6 +31,7 @@ void modRejon::on_Ok_clicked()
     QString nazwa = ui->lineEdit->text();
 
     auto w = new QMessageBox();
+    if(nazwa.length()>25){w->setText("Nazwa rejonu nie może przekraczać 25 znaków");w->show();return;}
     if (!(nazwa==""))
     {
         QSqlQuery q1;

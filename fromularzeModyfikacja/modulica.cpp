@@ -35,6 +35,8 @@ void modUlica::on_Ok_clicked()
 
     QString rej = ui->rejonComboBox->currentText();
     QString nazwa = ui->nazwaUlicyLineEdit->text();
+    if(nazwa.length()>25){
+            (new QMessageBox(QMessageBox::Icon::Information,"","Nazwa ulicy ma mieć do 25 znaków."))->show();return;}
     auto w = new QMessageBox();
     if (!(rej=="" || nazwa == ""||rejwyb==""||nazwawyb==""))
     {
