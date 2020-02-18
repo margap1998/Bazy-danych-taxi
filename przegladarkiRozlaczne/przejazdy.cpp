@@ -15,6 +15,7 @@ Przejazdy::Przejazdy(QWidget *parent) :
 {
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Przejazdy::~Przejazdy()
@@ -30,6 +31,7 @@ Przejazdy::Przejazdy(QWidget *parent, QWidget *bef) :
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 

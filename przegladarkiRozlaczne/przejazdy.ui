@@ -36,6 +36,13 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
+     <widget class="QPushButton" name="ZatwierdzButton_2">
+      <property name="text">
+       <string>Zatwierdź</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="WrocButton_2">
       <property name="text">
        <string>Wróć</string>
@@ -86,9 +93,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="ZatwierdzButton_2">
+     <widget class="QPushButton" name="modyfikuj">
       <property name="text">
-       <string>Zatwierdź</string>
+       <string>Modyfikuj przejazd</string>
       </property>
      </widget>
     </item>

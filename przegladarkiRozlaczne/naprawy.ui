@@ -36,6 +36,13 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
+     <widget class="QPushButton" name="ZatwierdzButton_2">
+      <property name="text">
+       <string>Zatwierdź</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="WrocButton_2">
       <property name="text">
        <string>Wróć</string>
@@ -60,7 +67,7 @@
      <x>670</x>
      <y>400</y>
      <width>311</width>
-     <height>166</height>
+     <height>200</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -93,9 +100,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="ZatwierdzButton_2">
+     <widget class="QPushButton" name="modyfikuj">
       <property name="text">
-       <string>Zatwierdź</string>
+       <string>Modyfikuj naprawę</string>
       </property>
      </widget>
     </item>
@@ -136,7 +143,7 @@
      <x>540</x>
      <y>497</y>
      <width>121</width>
-     <height>71</height>
+     <height>91</height>
     </rect>
    </property>
    <property name="sizePolicy">

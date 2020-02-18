@@ -13,7 +13,9 @@ naprawy::naprawy(QWidget *parent) :
 {
     ui->setupUi(this);
     aktywnaTabela = "naprawa";
-    on_OdswierzButton_clicked();}
+    on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
+}
 
 void naprawy::on_WrocButton_2_clicked()
 {
@@ -51,6 +53,7 @@ naprawy::naprawy(QWidget *parent, QWidget *bef):
     ui->setupUi(this);
     aktywnaTabela = "naprawa";
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 

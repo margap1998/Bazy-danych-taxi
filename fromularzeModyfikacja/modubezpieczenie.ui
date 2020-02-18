@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>modUbezpieczenie</class>
+ <widget class="QDialog" name="modUbezpieczenie">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>490</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>100</y>
+     <width>331</width>
+     <height>329</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="numerUbezpieczeniaLabel">
+      <property name="text">
+       <string>Numer ubezpieczenia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="numerUbezpieczeniaLineEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="numerRejestracyjnyLabel">
+      <property name="text">
+       <string>Numer rejestracyjny</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="numerRejestracyjnyComboBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="ubezpieczycielLabel">
+      <property name="text">
+       <string>Ubezpieczyciel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ubezpieczycielLineEdit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="kwotaLabel">
+      <property name="text">
+       <string>Kwota</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QDoubleSpinBox" name="kwotaDoubleSpinBox">
+      <property name="maximum">
+       <double>999999.989999999990687</double>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="kosztLabel">
+      <property name="text">
+       <string>Koszt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QDoubleSpinBox" name="kosztDoubleSpinBox">
+      <property name="maximum">
+       <double>99999.990000000005239</double>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="oCLabel">
+      <property name="text">
+       <string>OC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="oCCheckBox"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="dataZawarciaLabel">
+      <property name="text">
+       <string>Data zawarcia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QDateEdit" name="dataZawarciaDateEdit">
+      <property name="dateTime">
+       <datetime>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+        <year>2018</year>
+        <month>10</month>
+        <day>15</day>
+       </datetime>
+      </property>
+      <property name="displayFormat">
+       <string>yyyy-MM-dd</string>
+      </property>
+      <property name="date">
+       <date>
+        <year>2018</year>
+        <month>10</month>
+        <day>15</day>
+       </date>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="dataZakoCzeniaLabel">
+      <property name="text">
+       <string>Data zakończenia</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="aCLabel">
+      <property name="text">
+       <string>AC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QCheckBox" name="aCCheckBox"/>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="dodatkoweOpcjeLabel">
+      <property name="text">
+       <string>Dodatkowe opcje</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QPlainTextEdit" name="dodatkoweOpcjeTextEdit"/>
+    </item>
+    <item row="7" column="1">
+     <widget class="QDateEdit" name="dataZakonczeniaDateEdit">
+      <property name="displayFormat">
+       <string>yyyy-MM-dd</string>
+      </property>
+      <property name="date">
+       <date>
+        <year>2018</year>
+        <month>10</month>
+        <day>15</day>
+       </date>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>440</y>
+     <width>194</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="Ok">
+      <property name="text">
+       <string>OK</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="anuluj">
+      <property name="text">
+       <string>Anuluj</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>0</y>
+     <width>366</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Podaj numer ubezpieczenia, które chcesz zmodyfikować:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="comboBox"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

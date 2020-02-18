@@ -13,6 +13,7 @@ Klienci::Klienci(QWidget *parent) :
     ui->setupUi(this);
     obecnaTabela = "klient";
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Klienci::~Klienci()
@@ -28,6 +29,7 @@ Klienci::Klienci(QWidget *parent, QWidget *bef) :
     before =bef;
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 void Klienci::on_WrocButton_2_clicked()

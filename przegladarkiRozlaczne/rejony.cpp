@@ -22,6 +22,7 @@ Rejony::Rejony(QWidget *parent) :
 {
     ui->setupUi(this);
     on_rejonySwitch_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Rejony::~Rejony()
@@ -35,6 +36,7 @@ Rejony::Rejony(QWidget *parent, QWidget *bef) :
     before =bef;
     ui->setupUi(this);
     on_rejonySwitch_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 

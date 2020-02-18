@@ -19,7 +19,7 @@ kierowcyPojazdy::kierowcyPojazdy(QWidget *parent) :
     db = QSqlDatabase::database();
     ui->setupUi(this);
     on_OdswierzButton_clicked();
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 kierowcyPojazdy::kierowcyPojazdy(QWidget *parent, QWidget *bef):
@@ -32,6 +32,7 @@ kierowcyPojazdy::kierowcyPojazdy(QWidget *parent, QWidget *bef):
     before =bef;
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 kierowcyPojazdy::~kierowcyPojazdy()
@@ -47,11 +48,6 @@ void kierowcyPojazdy::on_WrocButton_2_clicked()
 }
 void kierowcyPojazdy::on_OdswierzButton_clicked(){
     model.setTable(schemat);
-    ui->tableView->setEditTriggers(QTableView::EditTrigger::AllEditTriggers);
-    if(schemat=="kierowcypojazdy")
-    {
-        ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
-    }
     model.select();
     ui->tableView->setModel(&model);
 }

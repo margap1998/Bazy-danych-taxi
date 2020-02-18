@@ -113,7 +113,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Raport przejazdów</string>
+       <string>Raport przejazdów z ostatnich 30 dni</string>
       </property>
      </widget>
     </item>

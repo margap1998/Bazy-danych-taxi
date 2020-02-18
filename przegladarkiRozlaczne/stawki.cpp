@@ -12,6 +12,7 @@ Stawki::Stawki(QWidget *parent) :
 {
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Stawki::~Stawki()
@@ -26,6 +27,7 @@ Stawki::Stawki(QWidget *parent, QWidget *bef) :
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 

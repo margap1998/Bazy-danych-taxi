@@ -13,6 +13,7 @@ Promocje::Promocje(QWidget *parent) :
 {
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 Promocje::Promocje(QWidget *parent, QWidget *bef) :
     QWidget(parent),
@@ -22,6 +23,7 @@ Promocje::Promocje(QWidget *parent, QWidget *bef) :
 
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Promocje::~Promocje()

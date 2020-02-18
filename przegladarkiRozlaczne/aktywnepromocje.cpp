@@ -12,6 +12,7 @@ aktywnePromocje::aktywnePromocje(QWidget *parent) :
     ui->setupUi(this);
 
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 aktywnePromocje::aktywnePromocje(QWidget *parent, QWidget *bef):
@@ -21,6 +22,7 @@ aktywnePromocje::aktywnePromocje(QWidget *parent, QWidget *bef):
     before = bef;
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 aktywnePromocje::~aktywnePromocje()

@@ -16,6 +16,7 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 Ubezpieczenia::~Ubezpieczenia()
@@ -30,6 +31,7 @@ Ubezpieczenia::Ubezpieczenia(QWidget *parent, QWidget *bef) :
     obecnaTabelka = "ubezpieczenie";
     ui->setupUi(this);
     on_OdswierzButton_clicked();
+    ui->tableView->setEditTriggers(QTableView::EditTrigger::NoEditTriggers);
 }
 
 void Ubezpieczenia::on_WrocButton_2_clicked()

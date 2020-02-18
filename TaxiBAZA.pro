@@ -62,6 +62,18 @@ SOURCES += \
     Usuwanie/usunubezpieczenie.cpp \
     Usuwanie/usunulice.cpp \
     Usuwanie/usunwarsztat.cpp \
+    fromularzeModyfikacja/modaktywowanapromocja.cpp \
+    fromularzeModyfikacja/modkierowca.cpp \
+    fromularzeModyfikacja/modklient.cpp \
+    fromularzeModyfikacja/modnaprawa.cpp \
+    fromularzeModyfikacja/modobsluga.cpp \
+    fromularzeModyfikacja/modpojazd.cpp \
+    fromularzeModyfikacja/modpromocja.cpp \
+    fromularzeModyfikacja/modprzejazd.cpp \
+    fromularzeModyfikacja/modrejon.cpp \
+    fromularzeModyfikacja/modstawka.cpp \
+    fromularzeModyfikacja/modubezpieczenie.cpp \
+    fromularzeModyfikacja/modulica.cpp \
     logowanie.cpp \
         main.cpp \
     przegladarkiRozlaczne/aktywnepromocje.cpp \
@@ -77,8 +89,7 @@ SOURCES += \
     menu.cpp \
     przegladarka.cpp \
     raportdialog.cpp \
-    warsztat.cpp \
-    wyszukaj.cpp
+    warsztat.cpp
 
 HEADERS += \
     Dialogi/dodajaktywowanopromocje.h \
@@ -119,6 +130,18 @@ HEADERS += \
     Usuwanie/usunubezpieczenie.h \
     Usuwanie/usunulice.h \
     Usuwanie/usunwarsztat.h \
+    fromularzeModyfikacja/modaktywowanapromocja.h \
+    fromularzeModyfikacja/modkierowca.h \
+    fromularzeModyfikacja/modklient.h \
+    fromularzeModyfikacja/modnaprawa.h \
+    fromularzeModyfikacja/modobsluga.h \
+    fromularzeModyfikacja/modpojazd.h \
+    fromularzeModyfikacja/modpromocja.h \
+    fromularzeModyfikacja/modprzejazd.h \
+    fromularzeModyfikacja/modrejon.h \
+    fromularzeModyfikacja/modstawka.h \
+    fromularzeModyfikacja/modubezpieczenie.h \
+    fromularzeModyfikacja/modulica.h \
     logowanie.h \
     przegladarkiRozlaczne/aktywnepromocje.h \
     przegladarkiRozlaczne/kierowcypojazdy.h \
@@ -133,8 +156,7 @@ HEADERS += \
     menu.h \
     przegladarka.h \
     raportdialog.h \
-    warsztat.h \
-    wyszukaj.h
+    warsztat.h
 
 FORMS += \
     Dialogi/dodajaktywowanopromocje.ui \
@@ -175,6 +197,18 @@ FORMS += \
     Usuwanie/usunubezpieczenie.ui \
     Usuwanie/usunulice.ui \
     Usuwanie/usunwarsztat.ui \
+    fromularzeModyfikacja/modaktywowanapromocja.ui \
+    fromularzeModyfikacja/modkierowca.ui \
+    fromularzeModyfikacja/modklient.ui \
+    fromularzeModyfikacja/modnaprawa.ui \
+    fromularzeModyfikacja/modobsluga.ui \
+    fromularzeModyfikacja/modpojazd.ui \
+    fromularzeModyfikacja/modpromocja.ui \
+    fromularzeModyfikacja/modprzejazd.ui \
+    fromularzeModyfikacja/modrejon.ui \
+    fromularzeModyfikacja/modstawka.ui \
+    fromularzeModyfikacja/modubezpieczenie.ui \
+    fromularzeModyfikacja/modulica.ui \
     logowanie.ui \
     przegladarkiRozlaczne/aktywnepromocje.ui \
     przegladarkiRozlaczne/kierowcypojazdy.ui \
@@ -189,5 +223,4 @@ FORMS += \
     menu.ui \
     przegladarka.ui \
     raportdialog.ui \
-    warsztat.ui \
-    wyszukaj.ui
+    warsztat.ui
