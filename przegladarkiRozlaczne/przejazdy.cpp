@@ -8,6 +8,7 @@
 
 #include <Szukajki/szukajprzejazdu.h>
 #include <Usuwanie/usunprzejazdy.h>
+#include <fromularzeModyfikacja/modprzejazd.h>
 
 Przejazdy::Przejazdy(QWidget *parent) :
     QWidget(parent),
@@ -72,4 +73,9 @@ void Przejazdy::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Przejazdy::on_modyfikuj_clicked()
+{
+    (new modPrzejazd(this))->show();
 }

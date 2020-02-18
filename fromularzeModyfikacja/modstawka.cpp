@@ -18,6 +18,8 @@ modStawka::~modStawka()
 
 void modStawka::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
 

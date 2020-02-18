@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <Szukajki/szukajkodu.h>
 #include <Usuwanie/usunstawke.h>
+#include <fromularzeModyfikacja/modstawka.h>
 Stawki::Stawki(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Stawki)
@@ -68,4 +69,9 @@ void Stawki::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Stawki::on_pushButton_clicked()
+{
+    (new modStawka(this))->show();
 }

@@ -5,6 +5,7 @@
 #include <Szukajki/szukajaktywnejpromocji.h>
 #include <Usuwanie/usunaktywnapromocje.h>
 #include "Dialogi/dodajaktywowanopromocje.h"
+#include "fromularzeModyfikacja/modaktywowanapromocja.h"
 aktywnePromocje::aktywnePromocje(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::aktywnePromocje)
@@ -72,3 +73,8 @@ void aktywnePromocje::on_WrocButton_2_clicked()
     delete this;
 }
 
+
+void aktywnePromocje::on_modyfikuj_clicked()
+{
+    (new modAktywowanaPromocja(this))->show();
+}

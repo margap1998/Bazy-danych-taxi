@@ -18,6 +18,8 @@ modRejon::~modRejon()
 
 void modRejon::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
 

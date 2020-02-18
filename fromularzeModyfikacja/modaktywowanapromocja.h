@@ -27,6 +27,8 @@ private slots:
 private:
     Ui::modAktywowanaPromocja *ui;
     QSqlQueryModel model,modelK,modelR;
+    QSqlQueryModel umodelK,umodelT;
+    void zmiana_stanu();
 };
 
 #endif // MODAKTYWOWANAPROMOCJA_H

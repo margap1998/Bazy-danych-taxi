@@ -16,6 +16,10 @@
 #include <Szukajki/szukajrejonu.h>
 #include <Szukajki/szukajulicy.h>
 
+#include <fromularzeModyfikacja/modobsluga.h>
+#include <fromularzeModyfikacja/modrejon.h>
+#include <fromularzeModyfikacja/modulica.h>
+
 Rejony::Rejony(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Rejony)
@@ -140,4 +144,21 @@ void Rejony::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Rejony::on_modyfikuj_clicked()
+{
+    if (aktywnaTabela == "ulica")
+    {
+        auto okn =(new modUlica(this));
+        okn->show();
+    }else if (aktywnaTabela== "rejon")
+    {
+        auto okn =(new modRejon(this));
+        okn->show();
+    }else if (aktywnaTabela == "obsluga")
+    {
+        auto okn=(new modObsluga(this));
+        okn->show();
+    }
 }

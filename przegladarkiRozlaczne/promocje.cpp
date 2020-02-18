@@ -6,6 +6,7 @@
 #include <QtSql>
 #include <Szukajki/szukajpromocji.h>
 #include <Usuwanie/usunpromocje.h>
+#include <fromularzeModyfikacja/modpromocja.h>
 
 Promocje::Promocje(QWidget *parent) :
     QWidget(parent),
@@ -67,4 +68,9 @@ void Promocje::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Promocje::on_modyfikuj_clicked()
+{
+    (new modPromocja(this))->show();
 }

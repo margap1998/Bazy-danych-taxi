@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::modNaprawa *ui;
-    QSqlQueryModel model,modelW,modelR;
+    QSqlQueryModel model,modelW,modelR,umodelK,umodelW;
 };
 
 #endif // MODNAPRAWA_H

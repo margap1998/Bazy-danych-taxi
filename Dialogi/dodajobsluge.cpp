@@ -9,9 +9,9 @@ DodajObsluge::DodajObsluge(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DodajObsluge)
 {
+    ui->setupUi(this);
     modelK.setQuery("SELECT PESEL FROM kierowca");
     modelR.setQuery("SELECT Nazwa FROM rejon");
-    ui->setupUi(this);
     ui->rejonComboBox->setModel(&modelR);
     ui->kierowcaComboBox->setModel(&modelK);
 }
@@ -32,7 +32,6 @@ void DodajObsluge::on_Ok_clicked()
         QSqlQuery q1;
         if(!q1.prepare(pol))
         {
-            qDebug()<<pol<<"\n"<<q1.lastError();
             w->setText("Problem z przetworzeniem danych");
             w->show();
             return;

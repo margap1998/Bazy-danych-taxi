@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <Szukajki/szukajklienta.h>
 #include <Usuwanie/usunklienta.h>
+#include <fromularzeModyfikacja/modklient.h>
 Klienci::Klienci(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Klienci)
@@ -69,4 +70,9 @@ void Klienci::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Klienci::on_modyfikuj_clicked()
+{
+    (new modKlient(this))->show();
 }

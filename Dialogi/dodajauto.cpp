@@ -53,7 +53,6 @@ void DodajAuto::on_Ok_clicked()
         }else
         {
             w->setText("Dodanie pojazdu nie powiodło się");
-            qDebug()<<poj.lastError();
         }
     }
     else{

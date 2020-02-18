@@ -9,6 +9,8 @@ modPojazd::modPojazd(QWidget *parent) :
     ui(new Ui::modPojazd)
 {
     ui->setupUi(this);
+    model.setQuery("SELECT Numer_rejestracyjny FROM pojazd");
+    ui->nrRejCBwyb->setModel(&model);
 }
 
 modPojazd::~modPojazd()
@@ -20,7 +22,7 @@ void modPojazd::on_Ok_clicked()
 {
     QSqlQuery poj;
     QMessageBox *w;
-
+    QString nrWyb = ui->nrRejCBwyb->currentText();
 
     QString nr_rej = ui->NumRLE->text();
     QString mar = ui->MarkaLE->text();
@@ -32,12 +34,13 @@ void modPojazd::on_Ok_clicked()
     w = new QMessageBox();
     if(!(nr_rej == "" || mar == "" || mod == ""))
     {
-        pol = "CALL Dodaj_pojazd("
-                  "'"+nr_rej+"',"
-                  "'"+mar+"',"
-                  "'"+mod+"',"
-                  ""+rocznik+","
-                  "'"+przeg+"',"+rej_osb+")";
+        pol = "UPDATE pojazd SET "
+                  " Numer_rejestracyjny = '"+nr_rej+"',"
+                  " Marka = '"+mar+"',"
+                  " Model = '"+mod+"',"
+                  " Rocznik = "+rocznik+","
+                  " Koniec_przegladu = '"+przeg+"',"
+                  " Osob = "+rej_osb+" WHERE Numer_rejestracyjny = "+nrWyb;
         if(!poj.prepare(pol))
         {
             w->setText("Nie udało się przygotować procedury");
@@ -47,11 +50,11 @@ void modPojazd::on_Ok_clicked()
         w->show();
         if (poj.exec())
         {
-            w->setText("Dodanie pojazdu powiodło się");
+            w->setText("Pomyślnie zmodyfikowano pojazd");
             on_anuluj_clicked();
         }else
         {
-            w->setText("Dodanie pojazdu nie powiodło się");
+            w->setText("Zmodyfikowanie pojazdu nie powiodło się");
         }
     }
     else{
@@ -62,5 +65,7 @@ void modPojazd::on_Ok_clicked()
 
 void modPojazd::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }

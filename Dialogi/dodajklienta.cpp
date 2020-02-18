@@ -38,7 +38,6 @@ void DodajKlienta::on_Ok_clicked()
     {
         if(!q1.prepare(pol))
         {
-            qDebug()<<pol<<"\n"<<q1.lastError();
             w->setText("Problem z przetworzeniem danych");
             w->show();
             return;

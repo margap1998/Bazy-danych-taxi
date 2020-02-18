@@ -9,6 +9,10 @@ modKierowca::modKierowca(QWidget *parent) :
     ui(new Ui::modKierowca)
 {
     ui->setupUi(this);
+    model.setQuery("Select PESEL from Kierowca");
+    ui->peselCwyb->setModel(&model);
+    modelK.setQuery("SELECT Numer_rejestracyjny FROM pojazd");
+    ui->numerRejestracyjnyBox->setModel(&modelK);
 }
 
 modKierowca::~modKierowca()
@@ -18,31 +22,40 @@ modKierowca::~modKierowca()
 
 void modKierowca::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
 
 void modKierowca::on_Ok_clicked()
 {
     QSqlQuery kier;
+    QString kierWyb = ui->peselCwyb->currentText();
     QString pes = ui->PESELLE->text();
     QString im = ui->imieLE->text();
     QString nazwisko = ui->NazwiskoLE->text();
     QString zatr = ui->dataZatrudnieniaDataEdit->date().toString("yyyy-MM-dd");
     QString nr_rej = ui->numerRejestracyjnyBox->currentText();
-    QString p2 = "CALL Dodaj_kierowce('"+pes+"','"+nr_rej+"','"+im+"','"+nazwisko+"','"+zatr+"')";
-    if (kier.prepare(p2))
+    QString p2 = "UPDATE kierowca SET "
+                 " PESEL ='"+pes+"',"
+                 " Numer_rejestracyjny = '"+nr_rej+"', "
+                 " Imie = '"+im+"',"
+                 " Nazwisko ='"+nazwisko+"',"
+                 " Data_zatrudnienia'"+zatr+"'"
+                 " WHERE PESEL = '"+kierWyb+"'";
+    if(!(nr_rej == "" ||pes == ""||im == ""|| nazwisko==""))
     {
-        if(!(nr_rej == "" ||pes == ""||im == ""|| nazwisko==""))
+        if (kier.prepare(p2))
         {
             auto w = new QMessageBox();
             if (kier.exec())
             {
-                w->setText("Dodanie kierowcy powiodło się");
+                w->setText("Pomyślnie zmodyfikowano dane o kierowcy");
                 w->show();
                 on_anuluj_clicked();
             }else
             {
-                w->setText("Dodanie kierowcy nie powiodło się");
+                w->setText("Modyfikacja kierowcy nie powiodła się");
             }
             w->show();
         }else

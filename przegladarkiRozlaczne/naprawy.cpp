@@ -7,6 +7,7 @@
 #include <warsztat.h>
 #include <Szukajki/szukajnaprawy.h>
 #include <Usuwanie/usunnaprawe.h>
+#include <fromularzeModyfikacja/modnaprawa.h>
 naprawy::naprawy(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::naprawy)
@@ -94,4 +95,9 @@ void naprawy::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void naprawy::on_modyfikuj_clicked()
+{
+    (new modNaprawa(this));
 }

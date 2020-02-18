@@ -18,7 +18,8 @@ modUlica::~modUlica()
 
 void modUlica::on_anuluj_clicked()
 {
-
+    this->hide();
+    delete this;
 }
 
 void modUlica::on_Ok_clicked()

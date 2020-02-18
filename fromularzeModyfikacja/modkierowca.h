@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::modKierowca *ui;
-    QSqlQueryModel model;
+    QSqlQueryModel model,modelK;
 };
 
 #endif // MODKIEROWCA_H

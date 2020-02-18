@@ -9,6 +9,8 @@
 #include <Szukajki/szukajubezpieczenia.h>
 
 #include <Usuwanie/usunubezpieczenie.h>
+
+#include <fromularzeModyfikacja/modubezpieczenie.h>
 Ubezpieczenia::Ubezpieczenia(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Ubezpieczenia)
@@ -105,4 +107,9 @@ void Ubezpieczenia::on_ZatwierdzButton_2_clicked()
 
     }
     model.select();
+}
+
+void Ubezpieczenia::on_pushButton_clicked()
+{
+    (new modUbezpieczenie(this))->show();
 }

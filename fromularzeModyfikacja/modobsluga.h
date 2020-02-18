@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::modObsluga *ui;
-    QSqlQueryModel modelR,modelK;
+    QSqlQueryModel modelR,modelK,umodelR,umodelK;
 };
 
 #endif // MODOBSLUGA_H

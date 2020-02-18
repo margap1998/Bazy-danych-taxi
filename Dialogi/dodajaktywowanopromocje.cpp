@@ -43,16 +43,17 @@ void dodajAktywowanoPromocje::on_Ok_clicked()
         {
             w->setText("Problem z przetworzeniem danych");
             w->show();
-        }
-        if(!q1.exec())
-        {
-            w->setText("Nieudana próba dodania nowego klienta");
-            w->show();
-        }
-        else{
-            w->setText("Pomyślnie dodano nowego klienta");
-            w->show();
-            on_anuluj_clicked();
+        }else{
+            if(!q1.exec())
+            {
+                w->setText("Nieudana próba aktyacji promocji");
+                w->show();
+            }
+            else{
+                w->setText("Pomyślnie aktywowano promocję");
+                w->show();
+                on_anuluj_clicked();
+            }
         }
     }
     else

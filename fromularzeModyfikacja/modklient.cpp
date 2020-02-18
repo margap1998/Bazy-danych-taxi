@@ -9,6 +9,8 @@ modKlient::modKlient(QWidget *parent) :
     ui(new Ui::modKlient)
 {
     ui->setupUi(this);
+    model.setQuery("Select Numer_telefonu from Klient");
+    ui->nrTelCBwybor->setModel(&model);
 }
 
 modKlient::~modKlient()
@@ -18,27 +20,31 @@ modKlient::~modKlient()
 
 void modKlient::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
 
 void modKlient::on_Ok_clicked()
 {
-    QString pol ="CALL Dodaj_Klienta('";
+    QString nrWyb = ui->nrTelCBwybor->currentText();
     QString nr = ui->numerTelefonuLineEdit->text();
     QString email = ui->eMailLineEdit->text();
     QString data = ui->dataRejestracjiDateEdit->text();
     QString imie = ui->imiLineEdit->text();
     QString nazwisko = ui->nazwiskoLineEdit->text();
     auto w = new QMessageBox();
-    pol.append(nr+"','");
-    pol.append(email+"','");
-    pol.append(data+"','");
-    pol.append(imie+"','");
-    pol.append(nazwisko+"')");
 
     QSqlQuery q1;
     if (!(nr == "" || email==""||data==""))
     {
+        QString pol ="UPDATE klient SET "
+                "Numer_telefonu = '"+nr+"',"
+                " email = '"+email+"', "
+                " Data_rejestracji = '+data+',"
+                " Imie = '"+imie+"',"
+                " Nazwisko = '"+nazwisko+"'"
+                " WHERE Numer_telefonu = '"+nrWyb+"'";
         if(!q1.prepare(pol))
         {
             w->setText("Problem z przetworzeniem danych");
@@ -47,11 +53,11 @@ void modKlient::on_Ok_clicked()
         }
         if(!q1.exec())
         {
-            w->setText("Nieudana próba dodania nowego klienta");
+            w->setText("Nieudana próba modyfikacji klienta");
             w->show();
         }
         else{
-            w->setText("Pomyślnie dodano nowego klienta");
+            w->setText("Pomyślnie zmodyfikowano klienta");
             w->show();
             on_anuluj_clicked();
         }

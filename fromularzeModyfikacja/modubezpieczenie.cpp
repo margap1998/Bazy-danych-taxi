@@ -18,7 +18,8 @@ modUbezpieczenie::~modUbezpieczenie()
 
 void modUbezpieczenie::on_anuluj_clicked()
 {
-
+    this->hide();
+    delete this;
 }
 
 void modUbezpieczenie::on_Ok_clicked()

@@ -9,6 +9,8 @@ modPromocja::modPromocja(QWidget *parent) :
     ui(new Ui::modPromocja)
 {
     ui->setupUi(this);
+    model.setQuery("Select Kod from Promocja");
+    ui->kodPromocjiwyb->setModel(&model);
 }
 
 modPromocja::~modPromocja()
@@ -18,12 +20,24 @@ modPromocja::~modPromocja()
 
 void modPromocja::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
+}
+
+void modPromocja::on_Ok_clicked()
+{
+    QString kodWyb = ui->kodPromocjiwyb->currentText();
+
     QString kod = ui->kodLineEdit->text();
     QString kwota = QVariant(ui->kwotaZniKiDoubleSpinBox->value()).toString();
     QString procent = ui->procentZniKiSpinBox->text();
     QString nazwa = ui->nazwaLineEdit->text();
-    QString pol = "INSERT INTO promocja(Kod, Nazwa, Kwota_znizki, Procent_znizki)"
-                    " VALUES('"+kod+"','"+nazwa+"',"+kwota+","+procent+")";
+    QString pol = "UPDATE promocja SET "
+                  " Kod = '"+kod+"',"
+                  " Nazwa = '"+nazwa+"',"
+                  " Kwota_znizki = "+kwota+","
+                  " Procent_znizki = "+procent+""
+                  " WHERE Kod = '"+kodWyb+"'";
     QSqlQuery q1;
     auto w = new QMessageBox();
     if (!(kod == "" || nazwa==""))
@@ -36,11 +50,11 @@ void modPromocja::on_anuluj_clicked()
         }
         if(!q1.exec())
         {
-            w->setText("Nieudana próba dodania promocji");
+            w->setText("Nieudana próba modyfikacji promocji");
             w->show();
         }
         else{
-            w->setText("Pomyślnie dodano promocję");
+            w->setText("Pomyślnie zmodyfikowano promocję");
             w->show();
             on_anuluj_clicked();
         }

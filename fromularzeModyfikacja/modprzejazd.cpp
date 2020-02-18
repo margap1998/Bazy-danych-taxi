@@ -18,6 +18,8 @@ modPrzejazd::~modPrzejazd()
 
 void modPrzejazd::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
 

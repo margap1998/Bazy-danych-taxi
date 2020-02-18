@@ -43,9 +43,6 @@ void DodajKierowce::on_Ok_clicked()
     w = new QMessageBox();
     if(!(poj.prepare(p1)&& kier.prepare(p2)))
     {
-        qDebug()<< p1 <<"\n"<<p2;
-        qDebug()<<poj.lastError();
-        qDebug()<<kier.lastError();
         w->setText("Problem z przetworzenie danych");
         w->show();
         return;

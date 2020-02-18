@@ -12,6 +12,10 @@ modAktywowanaPromocja::modAktywowanaPromocja(QWidget *parent) :
     ui->setupUi(this);
     modelK.setQuery("Select DISTINCT Kod from Aktywowana_promocja");
     modelR.setQuery("Select DISTINCT Numer_telefonu from Aktywowana_promocja");
+    umodelK.setQuery("SELECT kod FROM promocja");
+    umodelT.setQuery("SELECT Numer_telefonu FROM klient");
+    ui->numerTelefonuComboBox->setModel(&umodelT);
+    ui->kodComboBox->setModel(&umodelK);
     ui->numerCBwybor->setModel(&modelR);
     ui->numerCBwybor->setCurrentText("");
     ui->kodPromocjiwyb->setModel(&modelK);
@@ -38,7 +42,7 @@ void modAktywowanaPromocja::on_Ok_clicked()
     {
         QSqlQuery q1;
         QString pol =
-                "UPDATE `PolTAXI`.`Aktywowana_Promocja` "
+                "UPDATE `Aktywowana_Promocja` "
                 " SET "
                 " `Kod` = '"+kod+"'"+
                 ", `Numer_telefonu`= '"+nrTel+"'"+
@@ -52,16 +56,17 @@ void modAktywowanaPromocja::on_Ok_clicked()
         {
             w->setText("Problem z przetworzeniem danych");
             w->show();
-        }
-        if(!q1.exec())
-        {
-            w->setText("Nieudana próba dodania nowego klienta");
-            w->show();
-        }
-        else{
-            w->setText("Pomyślnie dodano nowego klienta");
-            w->show();
-            on_anuluj_clicked();
+        }else{
+            if(!q1.exec())
+            {
+                w->setText("Nieudana próba modyfikacji aktywowanej promocji");
+                w->show();
+            }
+            else{
+                w->setText("Pomyślnie zmodyfikowano aktywowaną promocję");
+                w->show();
+                on_anuluj_clicked();
+            }
         }
     }
     else
@@ -73,17 +78,22 @@ void modAktywowanaPromocja::on_Ok_clicked()
 
 void modAktywowanaPromocja::on_anuluj_clicked()
 {
+    this->hide();
+    delete this;
 
 }
+
 
 void modAktywowanaPromocja::on_kodPromocjiwyb_currentTextChanged(const QString &arg1)
 {
     modelK.setQuery("Select DISTINCT Kod from Aktywowana_promocja");
     modelR.setQuery("Select Numer_telefonu from Aktywowana_promocja WHERE kod="+arg1);
+
 }
 
 void modAktywowanaPromocja::on_numerCBwybor_activated(const QString &arg1)
 {
     modelK.setQuery("Select Kod from Aktywowana_promocja WHERE Numer_telefonu="+arg1);
     modelR.setQuery("Select DISTINCT Numer_telefonu from Aktywowana_promocja");
+
 }

@@ -7,6 +7,8 @@
 #include <Szukajki/szukajkierowcy.h>
 #include <Dialogi/dodajtylkokierowce.h>
 #include <Usuwanie/usunpojazd.h>
+#include <fromularzeModyfikacja/modkierowca.h>
+#include <fromularzeModyfikacja/modpojazd.h>
 #include "Szukajki/szukajpojazdu.h"
 #include "Usuwanie/usunkierowce.h"
 
@@ -121,4 +123,14 @@ void kierowcyPojazdy::on_usunPojazdButton_clicked()
 {
     auto w =(new usunPojazd(this));
     w->show();
+}
+
+void kierowcyPojazdy::on_ModyfikujPojazd_clicked()
+{
+    (new modKierowca(this))->show();
+}
+
+void kierowcyPojazdy::on_ModyfikujKierowce_clicked()
+{
+    (new modPojazd(this))->show();
 }
