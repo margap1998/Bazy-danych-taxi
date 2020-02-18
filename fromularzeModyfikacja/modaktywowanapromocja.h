@@ -15,6 +15,15 @@ public:
     explicit modAktywowanaPromocja(QWidget *parent = nullptr);
     ~modAktywowanaPromocja();
 
+private slots:
+    void on_Ok_clicked();
+
+    void on_anuluj_clicked();
+
+    void on_kodPromocjiwyb_currentTextChanged(const QString &arg1);
+
+    void on_numerCBwybor_activated(const QString &arg1);
+
 private:
     Ui::modAktywowanaPromocja *ui;
     QSqlQueryModel model,modelK,modelR;

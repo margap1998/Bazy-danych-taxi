@@ -16,6 +16,11 @@ public:
     explicit modObsluga(QWidget *parent = nullptr);
     ~modObsluga();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modObsluga *ui;
     QSqlQueryModel modelR,modelK;

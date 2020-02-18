@@ -16,6 +16,11 @@ public:
     explicit modKierowca(QWidget *parent = nullptr);
     ~modKierowca();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modKierowca *ui;
     QSqlQueryModel model;

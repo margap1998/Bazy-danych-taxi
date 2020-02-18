@@ -96,7 +96,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QComboBox" name="rejon"/>
+     <widget class="QComboBox" name="rejonCBwyb"/>
     </item>
     <item row="3" column="0">
      <widget class="QComboBox" name="ulica"/>

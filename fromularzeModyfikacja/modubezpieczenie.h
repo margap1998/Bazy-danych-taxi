@@ -16,6 +16,11 @@ public:
     explicit modUbezpieczenie(QWidget *parent = nullptr);
     ~modUbezpieczenie();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modUbezpieczenie *ui;
     QSqlQueryModel model;

@@ -16,6 +16,11 @@ public:
     explicit modKlient(QWidget *parent = nullptr);
     ~modKlient();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modKlient *ui;
     QSqlQueryModel model;

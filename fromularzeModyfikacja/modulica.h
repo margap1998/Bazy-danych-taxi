@@ -16,6 +16,11 @@ public:
     explicit modUlica(QWidget *parent = nullptr);
     ~modUlica();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modUlica *ui;
     QSqlQueryModel modelR,modelU;

@@ -16,6 +16,9 @@ public:
     explicit modPromocja(QWidget *parent = nullptr);
     ~modPromocja();
 
+private slots:
+    void on_anuluj_clicked();
+
 private:
     Ui::modPromocja *ui;
     QSqlQueryModel model;

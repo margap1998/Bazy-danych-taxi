@@ -16,6 +16,11 @@ public:
     explicit modStawka(QWidget *parent = nullptr);
     ~modStawka();
 
+private slots:
+    void on_anuluj_clicked();
+
+    void on_Ok_clicked();
+
 private:
     Ui::modStawka *ui;
     QSqlQueryModel model;
