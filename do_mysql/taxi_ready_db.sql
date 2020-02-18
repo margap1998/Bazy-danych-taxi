@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `PolTAXI`.`Aktywowana_Promocja` (
   `Data_aktywacji` DATE NOT NULL,
   `Wykorzystanie` INT(1) UNSIGNED NOT NULL,
   `Numer_paragonu` VARCHAR(25) NULL,
-  PRIMARY KEY (`Kod`, `Numer_telefonu`, `Data_aktywacji`),
+  PRIMARY KEY (`Kod`, `Numer_telefonu`),
   INDEX `fk_Aktywowana_Promocja1_idx` (`Numer_telefonu` ASC) VISIBLE,
   INDEX `fk_Aktywowana_Promocja2_idx` (`Kod` ASC) VISIBLE,
   INDEX `fk_Aktywowana_Promocja_Przejazd1_idx` (`Numer_paragonu` ASC) VISIBLE,
@@ -334,53 +334,6 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
--- function Najstarszy
--- -----------------------------------------------------
-
-USE `PolTAXI`;
-DROP function IF EXISTS `PolTAXI`.`Najstarszy`;
-
-DELIMITER $$
-USE `PolTAXI`$$
-Create FUNCTION Najstarszy()
-RETURNS VARCHAR(160) deterministic
-BEGIN
-DECLARE vw varchar(160);
-DECLARE vpojazd INT; 
- SELECT MIN(Rocznik) INTO vpojazd from Pojazd;
- Select group_concat(Numer_rejestracyjny separator ' ') INTO vw from Pojazdy where Rocznik <= vpojazd;
-return vw;
-End ;$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
--- function Placa
--- -----------------------------------------------------
-
-USE `PolTAXI`;
-DROP function IF EXISTS `PolTAXI`.`Placa`;
-
-DELIMITER $$
-USE `PolTAXI`$$
-CREATE FUNCTION `Placa` (vID CHAR(11),vod date, vdo date, vplaca int(5))
-RETURNS DECIMAL deterministic
-BEGIN
-	DECLARE vPlaca,vZarobek,vPodstawa DECIMAL;
-	DECLARE vPrzejazdow INT;
-    SELECT COUNT(*),SUM(Cena) INTO vPrzejazdow,vZarobek FROM Przejazd 
-		WHERE PESEL = vID AND Data_rozpoczecia <=vdo AND Data_rozpoczecia>= vod; 
-	CASE
-        WHEN vPrzejazdow>=640 THEN SET vPlaca = vPodstawa + vZarobek*0.10;
-		WHEN vPrzejazdow<200 THEN SET vPlaca = vPodstawa;
-        ELSE SET vPlaca = vPodstawa + vZarobek*0.08;
-    END CASE;
-    RETURN vPlaca;
-END;$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
 -- procedure Dodaj_kierowce
 -- -----------------------------------------------------
 
@@ -430,7 +383,7 @@ CREATE FUNCTION `przejazdy` (pes CHAR(11))
 returns DECIMAL(4) deterministic
 BEGIN
 DECLARE wynik DECIMAL(4);
-SELECT COUNT(*) INTO wynik FROM przejazdy WHERE PESEL=pes 
+SELECT COUNT(*) INTO wynik FROM przejazd WHERE PESEL=pes 
 	AND Data_rozpoczecia<=current_date() 
     AND Data_rozpoczecia>= date_sub(current_date(), INTERVAL 30 DAY)
     GROUP BY PESEL;
