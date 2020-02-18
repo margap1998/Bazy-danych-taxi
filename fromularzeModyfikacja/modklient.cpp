@@ -36,12 +36,12 @@ void modKlient::on_Ok_clicked()
     auto w = new QMessageBox();
 
     QSqlQuery q1;
-    if (!(nr == "" || email==""||data==""))
+    if (!(nr == "" || email==""||data==""||nrWyb==""))
     {
         QString pol ="UPDATE klient SET "
                 "Numer_telefonu = '"+nr+"',"
                 " email = '"+email+"', "
-                " Data_rejestracji = '+data+',"
+                " Data_rejestracji = '"+data+"',"
                 " Imie = '"+imie+"',"
                 " Nazwisko = '"+nazwisko+"'"
                 " WHERE Numer_telefonu = '"+nrWyb+"'";

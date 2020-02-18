@@ -150,15 +150,15 @@ void Rejony::on_modyfikuj_clicked()
 {
     if (aktywnaTabela == "ulica")
     {
-        auto okn =(new modUlica(this));
+        auto okn =(new modUlica());
         okn->show();
     }else if (aktywnaTabela== "rejon")
     {
-        auto okn =(new modRejon(this));
+        auto okn =(new modRejon());
         okn->show();
     }else if (aktywnaTabela == "obsluga")
     {
-        auto okn=(new modObsluga(this));
+        auto okn=(new modObsluga());
         okn->show();
     }
 }

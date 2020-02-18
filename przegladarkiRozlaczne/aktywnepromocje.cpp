@@ -76,5 +76,5 @@ void aktywnePromocje::on_WrocButton_2_clicked()
 
 void aktywnePromocje::on_modyfikuj_clicked()
 {
-    (new modAktywowanaPromocja(this))->show();
+    (new modAktywowanaPromocja())->show();
 }

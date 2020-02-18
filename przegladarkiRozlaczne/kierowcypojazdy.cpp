@@ -127,10 +127,10 @@ void kierowcyPojazdy::on_usunPojazdButton_clicked()
 
 void kierowcyPojazdy::on_ModyfikujPojazd_clicked()
 {
-    (new modKierowca(this))->show();
+    (new modKierowca())->show();
 }
 
 void kierowcyPojazdy::on_ModyfikujKierowce_clicked()
 {
-    (new modPojazd(this))->show();
+    (new modPojazd())->show();
 }

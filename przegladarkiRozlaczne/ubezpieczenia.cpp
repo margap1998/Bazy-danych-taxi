@@ -111,5 +111,5 @@ void Ubezpieczenia::on_ZatwierdzButton_2_clicked()
 
 void Ubezpieczenia::on_pushButton_clicked()
 {
-    (new modUbezpieczenie(this))->show();
+    (new modUbezpieczenie())->show();
 }

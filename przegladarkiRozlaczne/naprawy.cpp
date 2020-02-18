@@ -99,5 +99,5 @@ void naprawy::on_ZatwierdzButton_2_clicked()
 
 void naprawy::on_modyfikuj_clicked()
 {
-    (new modNaprawa(this));
+    (new modNaprawa())->show();
 }

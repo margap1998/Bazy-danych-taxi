@@ -73,5 +73,5 @@ void Stawki::on_ZatwierdzButton_2_clicked()
 
 void Stawki::on_pushButton_clicked()
 {
-    (new modStawka(this))->show();
+    (new modStawka())->show();
 }

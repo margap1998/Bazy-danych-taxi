@@ -41,7 +41,7 @@ void modKierowca::on_Ok_clicked()
                  " Numer_rejestracyjny = '"+nr_rej+"', "
                  " Imie = '"+im+"',"
                  " Nazwisko ='"+nazwisko+"',"
-                 " Data_zatrudnienia'"+zatr+"'"
+                 " Data_zatrudnienia = '"+zatr+"'"
                  " WHERE PESEL = '"+kierWyb+"'";
     if(!(nr_rej == "" ||pes == ""||im == ""|| nazwisko==""))
     {

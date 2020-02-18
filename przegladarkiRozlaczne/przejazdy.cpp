@@ -77,5 +77,5 @@ void Przejazdy::on_ZatwierdzButton_2_clicked()
 
 void Przejazdy::on_modyfikuj_clicked()
 {
-    (new modPrzejazd(this))->show();
+    (new modPrzejazd())->show();
 }

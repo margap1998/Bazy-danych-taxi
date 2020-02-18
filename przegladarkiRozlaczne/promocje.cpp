@@ -72,5 +72,5 @@ void Promocje::on_ZatwierdzButton_2_clicked()
 
 void Promocje::on_modyfikuj_clicked()
 {
-    (new modPromocja(this))->show();
+    (new modPromocja())->show();
 }

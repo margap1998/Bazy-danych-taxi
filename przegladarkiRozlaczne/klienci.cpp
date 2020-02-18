@@ -74,5 +74,5 @@ void Klienci::on_ZatwierdzButton_2_clicked()
 
 void Klienci::on_modyfikuj_clicked()
 {
-    (new modKlient(this))->show();
+    (new modKlient())->show();
 }
